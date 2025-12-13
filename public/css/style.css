@@ -1,0 +1,54 @@
+body {
+    padding-top: 68px; /* ajusta según la altura real del navbar */
+    background-color: #fff; /* asegura que el fondo sea uniforme */
+}
+.titulo-contenedor {
+    text-align: center;
+}
+.seccion{
+    
+    width: 100%;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.submenu {
+    margin-bottom: 0;   
+    border-bottom: none; 
+}
+.portada-img {
+    max-width: 250px; /* tamaño normal en pantallas grandes */
+}
+/* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
+@media (min-width: 992px) {
+
+    nav.navbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+  
+    .submenu {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 576px) {
+    /* xs */
+    .portada-img {
+        max-width: 120px; /* tamaño reducido en móviles */
+    }
+    .navbar {
+        border-bottom: 0px;
+    }
+    .logo img{
+        width: 60px;
+        height: 60px;
+    }
+    .buscador {
+    display: flex;            /* mantiene el input y botón en fila */
+    justify-content: flex-end;/* empuja todo el buscador a la derecha */
+  }
+}
