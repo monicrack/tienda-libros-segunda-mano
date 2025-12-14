@@ -9,8 +9,9 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all(); 
+        $books = Book::all();
         return view('books.index', compact('books'));
+        
     }
 
     public function search(Request $request)
@@ -33,4 +34,13 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         return view('books.show', compact('book'));
     }
+    public function novedades()
+    {
+        // Obtener los últimos 10 libros ordenados por fecha de creación
+        $books = Book::orderBy('created_at', 'desc')->take(10)->get();
+
+        return view('books.novedades', compact('books'));
+    }
+   
+
 }

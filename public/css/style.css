@@ -18,9 +18,47 @@ body {
     margin-bottom: 0;   
     border-bottom: none; 
 }
-.portada-img {
-    max-width: 250px; /* tamaño normal en pantallas grandes */
+.submenu a{
+    color: #ffffff !important; 
+    text-decoration: none;
+    font-size: 1.5em;
 }
+.submenu a:hover {
+    color: #D4AF37 !important; /*blanco al pasar el ratón */
+}
+
+.portada-img {
+    max-width: 250px; /*tamaño normal en pantallas grandes */
+}
+.mt-negativo {
+    margin-top: -110px;/*se superpone al contenido principal para reducir el espacio de altura*/
+}
+.card {
+    box-shadow: 8px 8px 10px rgba(212, 175, 55, 0.6); /* dorado intenso abajo a la derecha */
+}
+.btn-resumen {
+    background-color: #D4AF37  !important;       /* fondo blanco */
+    color: #fff!important;               /* texto verde esmeralda */
+    border: solid 3px #50C878 !important;    /* borde verde esmeralda */
+}
+
+.btn-resumen:hover {
+    background-color: #3da766 !important;    /* fondo dorado al pasar */
+    color: #fff !important;                  /* texto blanco */
+    border: solid 3px #D4AF37  !important;    /* borde verde oscuro */
+}
+.btn-primary {
+    background-color: #50C878 !important;
+    border: solid 3px #D4AF37 !important;
+}
+.btn-primary:hover {
+    background-color: #D4AF37 !important; 
+    border: solid 3px #3da766 !important;
+}
+
+
+
+
 /* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
 @media (min-width: 992px) {
 
@@ -33,8 +71,6 @@ body {
         width: 100%;
     }
 }
-
-
 @media (max-width: 576px) {
     /* xs */
     .portada-img {
@@ -51,4 +87,7 @@ body {
     display: flex;            /* mantiene el input y botón en fila */
     justify-content: flex-end;/* empuja todo el buscador a la derecha */
   }
+  .submenu a{
+    font-size: 1em;
+}
 }

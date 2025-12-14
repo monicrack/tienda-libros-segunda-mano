@@ -12,5 +12,8 @@ Route::get('/contacto', function () {
     return view('contact');
 })->name('contact');
 Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
+Route::get('/novedades', [BookController::class, 'novedades'])->name('books.novedades');
+
+
 
 
