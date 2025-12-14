@@ -5,68 +5,67 @@ body {
 .titulo-contenedor {
     text-align: center;
 }
-.seccion{
-    
+.seccion {
     width: 100%;
 }
-.logo img{
+.logo img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
 }
 .submenu {
-    margin-bottom: 0;   
-    border-bottom: none; 
+    margin-bottom: 0;
+    border-bottom: none;
 }
-.submenu a{
-    color: #ffffff !important; 
+.submenu a {
+    color: #ffffff !important;
     text-decoration: none;
     font-size: 1.5em;
 }
 .submenu a:hover {
-    color: #D4AF37 !important; /*blanco al pasar el ratón */
+    color: #d4af37 !important; /*blanco al pasar el ratón */
 }
 
 .portada-img {
     max-width: 250px; /*tamaño normal en pantallas grandes */
 }
 .mt-negativo {
-    margin-top: -110px;/*se superpone al contenido principal para reducir el espacio de altura*/
+    margin-top: -110px; /*se superpone al contenido principal para reducir el espacio de altura*/
 }
+
 .card {
     box-shadow: 8px 8px 10px rgba(212, 175, 55, 0.6); /* dorado intenso abajo a la derecha */
 }
 .btn-resumen {
-    background-color: #D4AF37  !important;       /* fondo blanco */
-    color: #fff!important;               /* texto verde esmeralda */
-    border: solid 3px #50C878 !important;    /* borde verde esmeralda */
+    background-color: #d4af37 !important; /* fondo blanco */
+    color: #fff !important; /* texto verde esmeralda */
+    border: solid 3px #50c878 !important; /* borde verde esmeralda */
 }
 
 .btn-resumen:hover {
-    background-color: #3da766 !important;    /* fondo dorado al pasar */
-    color: #fff !important;                  /* texto blanco */
-    border: solid 3px #D4AF37  !important;    /* borde verde oscuro */
+    background-color: #3da766 !important; /* fondo dorado al pasar */
+    color: #fff !important; /* texto blanco */
+    border: solid 3px #d4af37 !important; /* borde verde oscuro */
 }
 .btn-primary {
-    background-color: #50C878 !important;
-    border: solid 3px #D4AF37 !important;
+    background-color: #50c878 !important;
+    border: solid 3px #d4af37 !important;
 }
 .btn-primary:hover {
-    background-color: #D4AF37 !important; 
+    background-color: #d4af37 !important;
     border: solid 3px #3da766 !important;
 }
-
-
-
+.textos {
+    margin-left: 1em;
+}
 
 /* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
 @media (min-width: 992px) {
-
     nav.navbar {
         flex-direction: column;
         align-items: stretch;
     }
-  
+
     .submenu {
         width: 100%;
     }
@@ -79,15 +78,18 @@ body {
     .navbar {
         border-bottom: 0px;
     }
-    .logo img{
+    .logo img {
         width: 60px;
         height: 60px;
     }
     .buscador {
-    display: flex;            /* mantiene el input y botón en fila */
-    justify-content: flex-end;/* empuja todo el buscador a la derecha */
-  }
-  .submenu a{
-    font-size: 1em;
-}
+        display: flex; /* mantiene el input y botón en fila */
+        justify-content: flex-end; /* empuja todo el buscador a la derecha */
+    }
+    .submenu a {
+        font-size: 1em;
+    }
+    .mt-negativo {
+        margin-top: -180px;
+    }
 }
