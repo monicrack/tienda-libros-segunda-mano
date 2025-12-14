@@ -58,6 +58,24 @@ body {
 .textos {
     margin-left: 1em;
 }
+.contacto a {
+    text-decoration: none; /* quita el subrayado */
+}
+
+.contacto a:hover {
+    color: #d4af37 !important; /* opcional: cambia a dorado en hover */
+}
+
+.list-unstyled li a {
+    text-decoration: none;
+}
+.list-unstyled li a:hover {
+    color: #d4af37 !important;
+}
+.border-top-dorado {
+    border-top: 1px solid #D4AF37; /* fina línea dorada */
+}
+
 
 /* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
 @media (min-width: 992px) {
