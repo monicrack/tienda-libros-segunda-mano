@@ -1,6 +1,6 @@
 # Tienda de Libros de Segunda Mano
 
-Proyecto desarrollado en PHP utilizando el framework Laravel para el módulo
+Proyecto en desarrollo en PHP utilizando el framework Laravel para el módulo
 **Desarrollo Web en Entorno Servidor (DWES) – 2º DAW**.
 
 La aplicación permite la compra y venta de libros de segunda mano, gestionando
