@@ -20,7 +20,7 @@
             @endif
 
             <h5 class="card-title fw-bold">
-                <a href="{{ route('books.show', $book->id) }}" class="text-decoration-none">
+                <a href="{{ route('books.show', $book->id) }}" class="text-dark text-decoration-none">
                     {{ $book->titulo }}
                 </a>
             </h5>
