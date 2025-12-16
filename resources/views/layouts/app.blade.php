@@ -64,13 +64,27 @@
         <div class="submenu w-100 mt-3" style="background-color:#50C878;">
             <div class="container-fluid d-flex flex-wrap justify-content-center gap-3 py-2">
                 <a href="{{ route('books.novedades') }}" class="text-white fw-bold">Novedades</a>
-                <a href="{{ route('books.index') }}" class="text-white fw-bold">Libros</a>
+                <div class="dropdown">
+                    <a class="text-white fw-bold dropdown-toggle" href="#" id="librosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Libros
+                    </a>
+                    <!-- Submnenú Libros -->
+                    <ul class="dropdown-menu" style="background-color:#50C878;" aria-labelledby="librosDropdown">
+                        <li><a class="dropdown-item fw-bold"  href="{{ route('books.index') }}">Todos los libros</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.terror') }}">Terror</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.novela') }}">Novela</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.infantil') }}">Infantil</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.cienciaficcion') }}">Ciencia Ficción</a></li>
+                    </ul>
+                </div>
+
                 <a href="{{ route('books.sell') }}" class="text-white fw-bold">Compramos tus libros</a>
                 <a href="{{ route('contact') }}" class="text-white fw-bold">Contacto</a>
             </div>
         </div>
+
     </nav>
-        <div class="main">
+    <div class="main">
         @yield('content')
     </div>
     <!-- Footer -->
@@ -128,6 +142,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
@@ -14,6 +15,11 @@ Route::get('/contacto', function () {
 Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
 Route::get('/novedades', [BookController::class, 'novedades'])->name('books.novedades');
 
+Route::get('/importar-libros/{busqueda}', [BookController::class, 'importarDesdeApi']);
 
-
-
+Route::prefix('libros')->group(function () {
+    Route::get('/terror', [LibroController::class, 'categoria'])->name('libros.terror');
+    Route::get('/novela', [LibroController::class, 'categoria'])->name('libros.novela');
+    Route::get('/infantil', [LibroController::class, 'categoria'])->name('libros.infantil');
+    Route::get('/ciencia-ficcion', [LibroController::class, 'categoria'])->name('libros.cienciaficcion');
+});

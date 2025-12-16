@@ -11,7 +11,7 @@
     <h3 style="color: #50C878;">Compra y Vende Libros usados de forma sencilla</h3>
     <!-- Imágenes -->
     <div class="row imagenes justify-content-center">
-         <div class="col-auto">
+        <div class="col-auto">
             <img src="{{ asset('images/ui/portada3.webp') }}" alt="Portada de libros" class="img-fluid portada-img">
         </div>
         <div class="col-auto">
@@ -36,7 +36,12 @@
                 <div class="row justify-content-center px-3">
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                            <img src="{{ asset('images/books/la-chica-del-lago.webp') }}" class="card-img-top" alt="Libro 1">
+                            <div class="card-body d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                    alt="Libro 1"
+                                    class="img-fluid mb-3"
+                                    style="max-width:200px;">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">La chica del lago</h5>
                                 <!-- Botón para desplegar -->
@@ -48,12 +53,12 @@
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen1">
                                     <div class="card card-body">
-                                    Thriller adictivo sobre la escritora de éxito Quintana Torres, quien recibe una foto 
-                                    del diario de Alba, la adolescente desaparecida en 1999, cuya historia inspiró 
-                                    su novela más famosa. Esto la lleva a regresar a su pueblo natal, Urkizu, 
-                                    para investigar el misterio del diario y la desaparición de Alba, 
-                                    desenterrando secretos del pasado que reabren viejas heridas en una trama trepidante
-                                    que mezcla pasado y presente en escenarios como Bilbao, Madrid y el País Vasco. 
+                                        Thriller adictivo sobre la escritora de éxito Quintana Torres, quien recibe una foto
+                                        del diario de Alba, la adolescente desaparecida en 1999, cuya historia inspiró
+                                        su novela más famosa. Esto la lleva a regresar a su pueblo natal, Urkizu,
+                                        para investigar el misterio del diario y la desaparición de Alba,
+                                        desenterrando secretos del pasado que reabren viejas heridas en una trama trepidante
+                                        que mezcla pasado y presente en escenarios como Bilbao, Madrid y el País Vasco.
                                     </div>
                                 </div>
                                 <p class="fw-bold text-dark">Autor: Mikel Santiago</p>
@@ -64,7 +69,12 @@
                     </div>
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                            <img src="{{ asset('images/libros/libro2.jpg') }}" class="card-img-top" alt="Libro 2">
+                             <div class="card-body d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                    alt="Libro 2"
+                                    class="img-fluid mb-3"
+                                    style="max-width:200px;">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Título del Libro 2</h5>
                                 <!-- Botón para desplegar -->
@@ -87,7 +97,12 @@
                     </div>
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                            <img src="{{ asset('images/libros/libro3.jpg') }}" class="card-img-top" alt="Libro 3">
+                             <div class="card-body d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                    alt="Libro 3"
+                                    class="img-fluid mb-3"
+                                    style="max-width:200px;">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Título del Libro 3</h5>
                                 <!-- Botón para desplegar -->
@@ -110,7 +125,12 @@
                     </div>
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                            <img src="{{ asset('images/libros/libro4.jpg') }}" class="card-img-top" alt="Libro 4">
+                             <div class="card-body d-flex flex-column align-items-center">
+                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                    alt="Libro 4"
+                                    class="img-fluid mb-3"
+                                    style="max-width:200px;">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title fw-bold">Título del Libro 4</h5>
                                 <!-- Botón para desplegar -->
@@ -147,12 +167,12 @@
         <p>Navega por nuestro extenso catálogo y encuentra una variedad inigualable de títulos.</p>
         <p>Además de ofrecer precios asequibles, nos esforzamos por promover la sostenibilidad y el amor por la lectura.</p>
         <p>Ya sea que busques literatura clásica, novelas contemporáneas o ejemplares raros, tenemos algo
-        para cada amante de la lectura.</p>
+            para cada amante de la lectura.</p>
         <p>Explora nuestras categorías, aprovecha nuestras ofertas exclusivas y sumérgete en el apasionante mundo
             de los libros de segunda mano.</p>
     </div>
     <div class="textos row">
-        <h3 style="color: #50C878;" >
+        <h3 style="color: #50C878;">
             <i class="bi bi-book"></i> Ahorra comprando libros de segunda mano
         </h3>
         <p>Comprar libros de segunda mano es una excelente manera de disfrutar de tus autores favoritos
@@ -168,7 +188,7 @@
     </div>
 </div>
 <!-- Imagen banner-->
-    <div class="container-fluid p-0">
-        <img src="{{ asset('images/ui/banner.webp') }}" alt="Banner Libros" class="img-fluid w-100">
-    </div>
+<div class="container-fluid p-0">
+    <img src="{{ asset('images/ui/banner.webp') }}" alt="Banner Libros" class="img-fluid w-100">
+</div>
 @endsection
