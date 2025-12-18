@@ -62,7 +62,8 @@
         </div>
         <!-- Submenú -->
         <div class="submenu w-100 mt-3" style="background-color:#50C878;">
-            <div class="container-fluid d-flex flex-wrap justify-content-center gap-3 py-2">
+            <div class="container-fluid d-flex flex-wrap justify-content-center gap-3 py-2 menu-principal">
+                <a href="{{ url('/') }}" class="text-white fw-bold">Inicio</a>
                 <a href="{{ route('books.novedades') }}" class="text-white fw-bold">Novedades</a>
                 <div class="dropdown">
                     <a class="text-white fw-bold dropdown-toggle" href="#" id="librosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,6 +76,7 @@
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.novela') }}">Novela</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.infantil') }}">Infantil</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.cienciaficcion') }}">Ciencia Ficción</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.fantasia') }}">Fantasía</a></li>
                     </ul>
                 </div>
 

@@ -18,6 +18,8 @@ class Book extends Model
         'descripcion',
         'imagen',
         'user_id',
+        'genero',
+        'isbn'
     ];
 
     // Relación con usuario

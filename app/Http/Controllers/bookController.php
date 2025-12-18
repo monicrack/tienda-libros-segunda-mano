@@ -30,19 +30,21 @@ class BookController extends Controller
     {
         return view('books.sell');
     }
+
     public function show($id)
     {
         $book = Book::findOrFail($id);
         return view('books.show', compact('book'));
     }
+
     public function novedades()
     {
         // Obtener los últimos 10 libros ordenados por fecha de creación
         $books = Book::orderBy('created_at', 'desc')->take(10)->get();
 
-        return view('books.index', compact('books'));
-    
+        return view('books.novedades', compact('books'));
     }
+
     public function importarDesdeApi($busqueda)
     {
         $response = Http::get(
@@ -56,8 +58,18 @@ class BookController extends Controller
         $items = $response->json()['items'] ?? [];
 
         foreach ($items as $item) {
-
             $info = $item['volumeInfo'];
+
+            // Extraer ISBN si existe
+            $isbn = null;
+            if (!empty($info['industryIdentifiers'])) {
+                foreach ($info['industryIdentifiers'] as $identifier) {
+                    if ($identifier['type'] === 'ISBN_13') {
+                        $isbn = $identifier['identifier'];
+                        break;
+                    }
+                }
+            }
 
             Book::firstOrCreate(
                 [
@@ -70,20 +82,27 @@ class BookController extends Controller
                     'imagen' => $info['imageLinks']['thumbnail'] ?? null,
                     'precio' => rand(5, 30),
                     'estado' => 'usado',
-                    'user_id' => Auth::id() 
+                    'user_id' => Auth::id(),
+                    'isbn'   => $isbn,
+                    'genero' => strtolower(
+                        str_replace(
+                            [' ', 'í', 'á', 'é', 'ó', 'ú'],
+                            ['-', 'i', 'a', 'e', 'o', 'u'],
+                            $info['categories'][0] ?? $busqueda
+                        )
+                    )
                 ]
             );
         }
 
         return redirect()->back()->with('success', 'Libros importados correctamente');
     }
+
     public function categoria(Request $request)
-{
-    $genero = $request->segment(2); // obtiene 'terror', 'novela', etc.
-    $books = Book::where('genero', $genero)->get();
+    {
+        $genero = $request->segment(2); // obtiene 'terror', 'novela', etc.
+        $books = Book::where('genero', $genero)->get();
 
-    return view('libros.categoria', compact('books', 'genero'));
-}
-
-    
+        return view('books.categoria', compact('books', 'genero'));
+    }
 }

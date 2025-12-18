@@ -5,7 +5,7 @@
 @section('content')
 <h1>Resultados de búsqueda</h1>
 <div class="container-fluid bg-dark text-light py-4 mt-5" id="libros">
-    <h2 class="text-center mb-4" style="color:#D4AF37;">Libros</h2>
+    <h2 class="text-center mb-4" style="color:#D4AF37;">Todos los Libros</h2>
     <div class="row justify-content-center px-3">
         @forelse($books as $book)
     <div class="col-6 col-lg-3 mb-3">
