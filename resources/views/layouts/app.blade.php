@@ -124,10 +124,10 @@
                 <div class="col-md-3 mb-3">
                     <h5 style="color:#50C878;">Información</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Atención al cliente</a></li>
+                        <li><a href="{{ route('info.atencion') }}" class="text-light">Atención al Cliente</a></li>
                         <li><a href="#" class="text-light">Quiénes somos</a></li>
                         <li><a href="#" class="text-light">Gastos de envío</a></li>
-                        <li><a href="#" class="text-light">Noticias</a></li>
+                        <li><a href="{{ route('info.envios') }}" class="text-light">Envíos y Devoluciones</a></li>
                     </ul>
                 </div>
 

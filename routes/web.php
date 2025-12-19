@@ -45,7 +45,6 @@ Route::get('/contacto', function () {
     return view('contact');
 })->name('contact');
 
-
 /********** Páginas legales**********/
 Route::get('/aviso-legal', function () {
     return view('legal.aviso');
@@ -63,4 +62,12 @@ Route::get('/proteccion-datos', function () {
     return view('legal.proteccion');
 })->name('legal.proteccion');
 
+/********** Información **********/
+Route::get('/atencion-cliente', function () {
+    return view('informacion.atencion');
+})->name('info.atencion');
+
+Route::get('/envios-devoluciones', function () {
+    return view('informacion.envios-devoluciones');
+})->name('info.envios');
 
