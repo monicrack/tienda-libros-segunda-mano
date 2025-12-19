@@ -28,3 +28,6 @@ Route::prefix('libros')->group(function () {
 Route::get('/aviso-legal', function () {
     return view('legal.aviso');
 })->name('legal.aviso');
+Route::get('/politica-cookies', function () {
+    return view('legal.cookies');
+})->name('legal.cookies');
