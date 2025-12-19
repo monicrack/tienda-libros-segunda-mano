@@ -23,7 +23,7 @@ class BookController extends Controller
             ->orWhere('autor', 'like', "%{$query}%")
             ->get();
 
-        return view('books.index', compact('books'));
+        return view('books.categoria', compact('books'));
     }
 
     public function sell()
@@ -102,7 +102,6 @@ class BookController extends Controller
 {
     $genero = $request->segment(2);
 
-    // Mapa para mostrar nombres bonitos
     $nombresBonitos = [
         'fantasia' => 'Fantasía',
         'ciencia-ficcion' => 'Ciencia Ficción',

@@ -59,3 +59,8 @@ Route::get('/condiciones-venta', function () {
     return view('legal.condiciones');
 })->name('legal.condiciones');
 
+Route::get('/proteccion-datos', function () {
+    return view('legal.proteccion');
+})->name('legal.proteccion');
+
+

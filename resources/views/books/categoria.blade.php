@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid bg-dark text-light py-4 mt-5" id="categoria-libros">
     <h2 class="text-center mb-4" style="color:#D4AF37;">
-        {{ $generoMostrar }}
+        {{  $generoMostrar ?? 'Resultados de la búsqueda'}}
     </h2>
 
     <div class="row justify-content-center px-3">
