@@ -125,8 +125,8 @@
                     <h5 style="color:#50C878;">Información</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{ route('info.atencion') }}" class="text-light">Atención al Cliente</a></li>
-                        <li><a href="#" class="text-light">Quiénes somos</a></li>
-                        <li><a href="#" class="text-light">Gastos de envío</a></li>
+                        <li><a href="{{ route('info.quienes') }}" class="text-light">Quiénes Somos</a></li>
+                        <li><a href="{{ route('info.gastos') }}" class="text-light">Gastos de Envío</a></li>
                         <li><a href="{{ route('info.envios') }}" class="text-light">Envíos y Devoluciones</a></li>
                     </ul>
                 </div>

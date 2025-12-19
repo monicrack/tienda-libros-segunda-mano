@@ -71,3 +71,12 @@ Route::get('/envios-devoluciones', function () {
     return view('informacion.envios-devoluciones');
 })->name('info.envios');
 
+Route::get('/gastos-envio', function () {
+    return view('informacion.gastos-envio');
+})->name('info.gastos');
+
+Route::get('/quienes-somos', function () {
+    return view('informacion.quienes-somos');
+})->name('info.quienes');
+
+
