@@ -24,3 +24,7 @@ Route::prefix('libros')->group(function () {
     Route::get('/ciencia-ficcion', [BookController::class, 'categoria'])->name('libros.cienciaficcion');
     Route::get('/fantasia', [BookController::class, 'categoria'])->name('libros.fantasia');
 });
+
+Route::get('/aviso-legal', function () {
+    return view('legal.aviso');
+})->name('legal.aviso');

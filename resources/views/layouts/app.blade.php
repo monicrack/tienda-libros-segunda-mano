@@ -7,8 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-
 </head>
 
 <body>
@@ -114,7 +112,7 @@
                 <div class="col-md-3 mb-3">
                     <h5 style="color:#50C878;">Páginas legales</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-light">Aviso legal</a></li>
+                        <li><a href="{{ route('legal.aviso') }}" class="text-light">Aviso legal</a></li>
                         <li><a href="#" class="text-light">Política de Cookies</a></li>
                         <li><a href="#" class="text-light">Condiciones de venta</a></li>
                         <li><a href="#" class="text-light">Protección de datos</a></li>
