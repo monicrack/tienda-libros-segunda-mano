@@ -114,7 +114,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{ route('legal.aviso') }}" class="text-light">Aviso legal</a></li>
                         <li><a href="{{ route('legal.cookies') }}" class="text-light">Política de Cookies</a></li>
-                        <li><a href="#" class="text-light">Condiciones de venta</a></li>
+                        <li><a href="{{ route('legal.condiciones') }}" class="text-light">Condiciones de Venta</a></li>
                         <li><a href="#" class="text-light">Protección de datos</a></li>
                     </ul>
                 </div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid bg-dark text-light py-4 mt-5" id="categoria-libros">
     <h2 class="text-center mb-4" style="color:#D4AF37;">
-        {{ ucfirst($genero) }}
+        {{ $generoMostrar }}
     </h2>
 
     <div class="row justify-content-center px-3">
@@ -45,7 +45,7 @@
 
                         <p class="fw-bold text-dark">Autor: {{ $book->autor }}</p>
                         <p class="fw-bold text-success">{{ $book->precio }}€</p>
-                        <p class="fw-bold text-secondary">ISBN: {{ $book->isbn ?? 'No disponible' }}</p>
+                        
                     </div>
 
                     <!-- Botón siempre al fondo -->

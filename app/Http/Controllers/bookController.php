@@ -98,11 +98,24 @@ class BookController extends Controller
         return redirect()->back()->with('success', 'Libros importados correctamente');
     }
 
-    public function categoria(Request $request)
-    {
-        $genero = $request->segment(2); // obtiene 'terror', 'novela', etc.
-        $books = Book::where('genero', $genero)->get();
+   public function categoria(Request $request)
+{
+    $genero = $request->segment(2);
 
-        return view('books.categoria', compact('books', 'genero'));
-    }
+    // Mapa para mostrar nombres bonitos
+    $nombresBonitos = [
+        'fantasia' => 'Fantasía',
+        'ciencia-ficcion' => 'Ciencia Ficción',
+        'novela' => 'Novela',
+        'terror' => 'Terror',
+        'infantil' => 'Infantil',
+    ];
+
+    $generoMostrar = $nombresBonitos[$genero] ?? ucfirst($genero);
+
+    $books = Book::where('genero', $genero)->get();
+
+    return view('books.categoria', compact('books', 'generoMostrar'));
+}
+
 }

@@ -49,7 +49,7 @@
     <p class="text-dark">
         Estas cookies permiten mostrar anuncios relevantes para ti basados en tus intereses.
         También limitan el número de veces que ves un anuncio y ayudan a medir la efectividad
-        de las campañas publicitarias..
+        de las campañas publicitarias.
     </p>
     <h2>Gestión de Cookies</h2>
     <p class="text-dark">
