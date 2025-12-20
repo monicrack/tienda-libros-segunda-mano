@@ -73,7 +73,7 @@
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.terror') }}">Terror</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.novela') }}">Novela</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.infantil') }}">Infantil</a></li>
-                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.cienciaficcion') }}">Ciencia Ficción</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.cienciaficcion') }}">Ficción</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.fantasia') }}">Fantasía</a></li>
                     </ul>
                 </div>

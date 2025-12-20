@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <p class="fw-bold text-dark">Autor: Mikel Santiago</p>
-                                <p class="fw-bold text-success">17,99 €</p>
+                                <p class="fw-bold text-success"> 9 €</p>
                                 <a href="#" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
@@ -70,27 +70,32 @@
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
                              <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                <img src="{{ asset('images/books/ac-gran-zark.jpg') }}"
                                     alt="Libro 2"
                                     class="img-fluid mb-3"
                                     style="max-width:200px;">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title fw-bold">Título del Libro 2</h5>
+                                <h5 class="card-title fw-bold">Alex Colt. El gran Zark</h5>
                                 <!-- Botón para desplegar -->
                                 <p>
                                     <a class="btn btn-sm btn-resumen" data-bs-toggle="collapse" href="#resumen2" role="button" aria-expanded="false" aria-controls="resumen1">
-                                        Sinopsis
+                                     Sipnosis
                                     </a>
                                 </p>
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen2">
                                     <div class="card card-body">
-                                        Este es un resumen más largo del libro 2. Toda la sipnosis aquí.
+                                           Después de que los zarkianos se hayan hecho con la Materia Oscura, 
+                                        la fuente principal de energía del universo, la Confederación no tiene más 
+                                        remedio que buscar un combustible alternativo... Así que Alex y sus amigos 
+                                        saldrán en busca de la Luz Sólida, una fuente de energía legendaria que 
+                                        nadie ha visto ni nadie sabe dónde está... ¿Serán ellos los elegidos por 
+                                        la profecía para salvar el universo?
                                     </div>
                                 </div>
-                                <p class="fw-bold text-dark">Autor: Nombre</p>
-                                <p class="fw-bold text-success">12,50 €</p>
+                                <p class="fw-bold text-dark">Autor: Juan Gómez-Jurado</p>
+                                <p class="fw-bold text-success">18 €</p>
                                 <a href="#" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
@@ -98,13 +103,13 @@
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
                              <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                <img src="{{ asset('images/books/ab-ultimo-minuto.jpg') }}"
                                     alt="Libro 3"
                                     class="img-fluid mb-3"
                                     style="max-width:200px;">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title fw-bold">Título del Libro 3</h5>
+                                <h5 class="card-title fw-bold">Amanda Black 3 - El Último minuto</h5>
                                 <!-- Botón para desplegar -->
                                 <p>
                                     <a class="btn btn-sm btn-resumen" data-bs-toggle="collapse" href="#resumen3" role="button" aria-expanded="false" aria-controls="resumen1">
@@ -114,11 +119,25 @@
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen3">
                                     <div class="card card-body">
-                                        Este es un resumen más largo del libro 3. Toda la sipnosis aquí.
+                                        Llega el tercer libro de la colección «Amanda Black», la nueva serie para 
+                                        niños de Juan Gómez-Jurado y Bárbara Montes. Aventuras repletas de misterio,
+                                        acción trepidante y un ritmo frenético. «Su final es tu principio.» Desde que 
+                                        heredó sus poderes, Amanda no ha tenido ni un momento de descanso: entrenos, 
+                                        deberes, misiones... Pero todo está a punto de cambiar, porque por primera vez 
+                                        ha decidido tomarse el día libre para asistir al baile del instituto. Se comprar
+                                        á un vestido bonito, le pedirá a Jason que la acompañe y todo será genial. 
+                                        ¡El sueño de cualquier adolescente! Sin embargo, las cosas nunca son como una 
+                                        quiere. La mañana del baile, la tía Paula le encomienda a Amanda una misión: 
+                                        evitar que una importante tablilla sumeria que lleva años desaparecida caiga en 
+                                        las manos equivocadas. Y Amanda, como heredera del culto a la diosa Maat, no puede
+                                        permitirlo. ¿Será capaz de robar la tablilla antes de que se pierda para siempre? Y,
+                                        aunque, lo consiga, ¿llegará a tiempo al baile más importante de su adolescencia? Si 
+                                        tienes ganas de vivir una gran aventura, ¡únete a Amanda Black! «LA ADICCIÓN LECTORA 
+                                        ESTÁ ASEGURADA.» Adrián Cordellat, El País
                                     </div>
                                 </div>
-                                <p class="fw-bold text-dark">Autor: Nombre</p>
-                                <p class="fw-bold text-success">7,80 €</p>
+                                <p class="fw-bold text-dark">Autor: Juan Gómez-Jurado</p>
+                                <p class="fw-bold text-success">17 €</p>
                                 <a href="#" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>
@@ -126,13 +145,13 @@
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
                              <div class="card-body d-flex flex-column align-items-center">
-                                <img src="{{ asset('images/books/la-chica-del-lago.webp') }}"
+                                <img src="{{ asset('images/books/todo-muere.jpg') }}"
                                     alt="Libro 4"
                                     class="img-fluid mb-3"
                                     style="max-width:200px;">
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title fw-bold">Título del Libro 4</h5>
+                                <h5 class="card-title fw-bold">Todo Muere (Todo arde 3)</h5>
                                 <!-- Botón para desplegar -->
                                 <p>
                                     <a class="btn btn-sm btn-resumen" data-bs-toggle="collapse" href="#resumen4" role="button" aria-expanded="false" aria-controls="resumen1">
@@ -142,11 +161,17 @@
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen4">
                                     <div class="card card-body">
-                                        Este es un resumen más largo del libro 4. Toda la sipnosis aquí.
+                                        LA ESPERA HA TERMINADO Se cierra el círculo del Universo Reina Roja. «Ni 
+                                        en un millón de años podrías imaginarte un desenlace como este». Zenda 
+                                        Vuelve el autor más leído en lengua española. EL MAYOR UNIVERSO DE THRILLER
+                                        JAMÁS ESCRITO Nota de la editorial: Esta novela es la clave del Universo 
+                                        Reina Roja, el proyecto narrativo al que Juan Gómez-Jurado ha dedicado los 
+                                        últimos quince años. Por expreso deseo del autor, en este libro no se incluye 
+                                        la clásica sinopsis de la historia.
                                     </div>
                                 </div>
-                                <p class="fw-bold text-dark">Autor: Nombre</p>
-                                <p class="fw-bold text-success">15,00 €</p>
+                                <p class="fw-bold text-dark">Autor: Juan Gómez-Jurado</p>
+                                <p class="fw-bold text-success">21 €</p>
                                 <a href="#" class="btn btn-primary">Comprar</a>
                             </div>
                         </div>

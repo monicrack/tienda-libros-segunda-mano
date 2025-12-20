@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Models\Book;
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -28,6 +29,9 @@ Route::get('/novedades', [BookController::class, 'novedades'])->name('books.nove
 /************* Importación desde API externa (Google Books)*********/
 Route::get('/importar-libros/{busqueda}', [BookController::class, 'importarDesdeApi'])
     ->name('books.importar');
+Route::get('/probar-importacion/{busqueda}', [App\Http\Controllers\BookController::class, 'importarDesdeApi']);
+
+
 
 /********** Categorías de libros***********************************************
 *********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
@@ -78,5 +82,7 @@ Route::get('/gastos-envio', function () {
 Route::get('/quienes-somos', function () {
     return view('informacion.quienes-somos');
 })->name('info.quienes');
+
+
 
 
