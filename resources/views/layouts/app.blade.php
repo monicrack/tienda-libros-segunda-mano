@@ -104,7 +104,8 @@
                     <ul class="list-unstyled">
                         <li>(+34) 00 000 00 00</li>
                         <li><a href="mailto:libros@relibromania.es" class="text-light">libros@relibromania.es</a></li>
-                        <li><a href="#" class="text-light">Formulario de contacto</a></li>
+                        <li><a href="{{ route('contact') }}" class="text-light">Formulario de contacto</a></li>
+
                     </ul>
                 </div>
 
