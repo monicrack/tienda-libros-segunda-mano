@@ -32,7 +32,6 @@ Route::get('/importar-libros/{busqueda}', [BookController::class, 'importarDesde
 Route::get('/probar-importacion/{busqueda}', [App\Http\Controllers\BookController::class, 'importarDesdeApi']);
 
 
-
 /********** Categorías de libros***********************************************
 *********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
 *********Cada una llama al método categoria() del controlador.*****************/
@@ -43,6 +42,9 @@ Route::prefix('libros')->group(function () {
     Route::get('/ciencia-ficcion', [BookController::class, 'categoria'])->name('libros.cienciaficcion');
     Route::get('/fantasia', [BookController::class, 'categoria'])->name('libros.fantasia');
 });
+
+/*********** Información compramos libros ************/
+Route::get('/compramos-tus-libros', [BookController::class, 'sell'])->name('books.sell');
 
 /******* Contacto*******/
 Route::get('/contacto', function () {

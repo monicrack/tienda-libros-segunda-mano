@@ -78,8 +78,8 @@
                     </ul>
                 </div>
 
-                <a href="{{ route('books.sell') }}" class="text-white fw-bold">Compramos tus libros</a>
-                <a href="{{ route('contact') }}" class="text-white fw-bold">Contacto</a>
+               <a href="{{ route('books.sell') }}" class="text-white fw-bold">Compramos tus libros</a>
+               <a href="{{ route('contact') }}" class="text-white fw-bold">Contacto</a>
             </div>
         </div>
 

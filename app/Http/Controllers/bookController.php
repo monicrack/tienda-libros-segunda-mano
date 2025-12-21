@@ -32,6 +32,7 @@ class BookController extends Controller
     {
         return view('books.sell');
     }
+
     /********** Mostrar los detalles de un libro concreto **********/
     public function show($id)
     {
@@ -40,14 +41,14 @@ class BookController extends Controller
     }
     /********** Mostrar 12 libros destacados **********/
     public function novedades()
-{
-    $ids = [238, 250, 170, 179, 184, 219, 201, 148, 203, 197, 155, 102];
+    {
+        $ids = [238, 250, 170, 179, 184, 219, 201, 148, 203, 197, 155, 102];
 
-    // Obtiene solo esos libros
-    $books = Book::whereIn('id', $ids)->get();
+        // Obtiene solo esos libros
+        $books = Book::whereIn('id', $ids)->get();
 
-    return view('books.novedades', compact('books'));
-}
+        return view('books.novedades', compact('books'));
+    }
 
     /********** Importar libros desde la API de Google Books **********/
     public function importarDesdeApi($busqueda)
