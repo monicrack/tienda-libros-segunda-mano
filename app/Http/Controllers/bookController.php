@@ -27,11 +27,7 @@ class BookController extends Controller
 
         return view('books.categoria', compact('books'));
     }
-    /********** Mostrar la vista para vender libros **********/
-    public function sell()
-    {
-        return view('books.sell');
-    }
+   
 
     /********** Mostrar los detalles de un libro concreto **********/
     public function show($id)
@@ -136,4 +132,6 @@ class BookController extends Controller
 
         return view('books.categoria', compact('books', 'generoMostrar'));
     }
+
+  
 }

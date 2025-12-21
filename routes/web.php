@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SellController;
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -16,9 +18,6 @@ Route::get('/libros', [BookController::class, 'index'])->name('books.index');
 
 // Buscador de libros
 Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
-
-// Página para vender libros
-Route::get('/vender-libros', [BookController::class, 'sell'])->name('books.sell');
 
 // Detalle de un libro concreto
 Route::get('/books/{id}', [BookController::class, 'show'])->name('books.show');
@@ -44,12 +43,14 @@ Route::prefix('libros')->group(function () {
 });
 
 /*********** Información compramos libros ************/
-Route::get('/compramos-tus-libros', [BookController::class, 'sell'])->name('books.sell');
+Route::get('/compramos-tus-libros', [SellController::class, 'index'])->name('sell');
+Route::post('/compramos-tus-libros/enviar', [SellController::class, 'submit'])->name('sell.submit');
 
-/******* Contacto*******/
-Route::get('/contacto', function () {
-    return view('contact');
-})->name('contact');
+
+/***** Página de contacto *******/
+Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
+Route::post('/contacto/enviar', [ContactController::class, 'submit'])->name('contact.submit');
+
 
 /********** Páginas legales**********/
 Route::get('/aviso-legal', function () {
@@ -67,6 +68,9 @@ Route::get('/condiciones-venta', function () {
 Route::get('/proteccion-datos', function () {
     return view('legal.proteccion');
 })->name('legal.proteccion');
+
+Route::view('/privacidad', 'legal.proteccion')->name('privacidad');
+
 
 /********** Información **********/
 Route::get('/atencion-cliente', function () {

@@ -3,8 +3,6 @@
 @section('content')
 <div class="container-fluid bg-dark text-light py-4 mt-5" id="categoria-libros">
 
-
-
     <h1 class="text-center mb-4" style="color:#D4AF37;">Compramos tus libros</h1>
 
     <p class="text-white text-center mb-5">
@@ -63,12 +61,53 @@
             Vender tus libros usados en <strong>ReLibroManía</strong> es fácil y sencillo.
 
         </p>
-        <p class="mt-4 text-dark">
-            Si deseas que valoremos tus libros, ponte en contacto con nosotros a través de la sección
-            <a href="{{ route('contact') }}" style="color:#50C878; font-weight:bold;">Contacto</a>.
-        </p>
+
     </div>
+    <div class="bg-dark">
 
+        <p class="text-white text-center mt-5 mb-5">
+            ¿Quieres dar una segunda vida a tus libros?
+            Rellena el formulario y te enviaremos una valoración lo antes posible.
+        </p>
 
+        <!-- FORMULARIO PARA VENDER LIBROS -->
+        <div class="col-12  mx-auto">
+            <div class="card shadow-lg p-4 h-100">
+                <h3 class="mb-4" style="color:#D4AF37;">Formulario de venta</h3>
+
+                @if(session('success_sell'))
+                <div class="alert alert-success">{{ session('success_sell') }}</div>
+                @endif
+
+                <form action="{{ route('sell.submit') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="mb-3">
+                        <label class="form-label">Tu nombre</label>
+                        <input type="text" name="nombre" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tu email</label>
+                        <input type="email" name="email" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Lista de libros</label>
+                        <textarea name="lista" class="form-control" rows="4" placeholder="Ejemplo: Harry Potter 1, It - Stephen King..." required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fotos de los libros (opcional)</label>
+                        <input type="file" name="fotos[]" class="form-control" multiple>
+                    </div>
+
+                    <button type="submit" class="btn btn-lg" style="background-color:#50C878; color:white;">
+                        Enviar solicitud de venta
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
