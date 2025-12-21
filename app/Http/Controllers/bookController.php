@@ -1,4 +1,12 @@
 <?php
+/*******El controlador es una clase que gestiona la lógica de las peticiones HTTP *********/
+/**
+ * --------------------------------------------------------------
+ *  Controlador: bookController
+ *  Descripción: Gestiona catálogo, búsqueda, categorías,
+ *  novedades de los libros e Importa libros de la API.
+ * --------------------------------------------------------------
+ */
 
 namespace App\Http\Controllers;
 
@@ -7,9 +15,9 @@ use App\Models\Book;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 
-/********** Mostrar catálogo completo **********/
 class BookController extends Controller
 {
+    /********** Mostrar catálogo completo **********/
     public function index()
     {
         $books = Book::all();

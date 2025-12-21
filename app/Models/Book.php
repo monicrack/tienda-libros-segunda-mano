@@ -1,5 +1,7 @@
 <?php
-
+/*** Modelo: Book
+ * Representa un libro dentro del sistema.
+ */
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;

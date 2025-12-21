@@ -1,15 +1,35 @@
 @extends('layouts.app')
 
+{{-- CAPA VISUAL --}}
+{{--
+    VISTA HOME
+    ------------------------------------------------------------
+    Esta es la página principal de ReLibroManía.
+    Contiene:
+    - Portada visual con mensaje de bienvenida
+    - Carrusel de novedades
+    - Secciones explicativas sobre la tienda
+    - Banner final
+    ------------------------------------------------------------
+--}}
+
 @section('title', 'Inicio')
 
 @section('content')
-<!-- Contenido principal -->
+
+{{-- CONTENIDO PRINCIPAL  --}}
+
 <div class="bg-dark text-light d-flex flex-column justify-content-center align-items-center min-vh-100 contenido-principal">
+
+    {{-- Título principal --}}
     <div class="titulo-contenedor">
         <h1 style="color: #D4AF37">Bienvenido a tu tienda de Libros de Segunda Mano</h1>
     </div>
+
+    {{-- Subtítulo --}}
     <h3 style="color: #50C878;">Compra y Vende Libros usados de forma sencilla</h3>
-    <!-- Imágenes -->
+
+    {{-- Galería de imágenes de portada --}}
     <div class="row imagenes justify-content-center">
         <div class="col-auto">
             <img src="{{ asset('images/ui/portada3.webp') }}" alt="Portada de libros" class="img-fluid portada-img">
@@ -26,14 +46,20 @@
     </div>
 </div>
 
-<!-- Carrusel de Novedades -->
+
+{{-- CARRUSEL DE NOVEDADES --}}
+
 <div class="container-fluid bg-dark text-light py-4 mt-negativo" id="novedades">
+
+    {{-- Título de sección --}}
     <h2 class="text-center mb-4" style="color:#D4AF37;">Novedades</h2>
-    <!-- Tarjetas-->
+
+    {{-- Carrusel Bootstrap --}}
     <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="row justify-content-center px-3">
+                    {{-- ===== TARJETA 1 ===== --}}
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
                             <div class="card-body d-flex flex-column align-items-center">
@@ -67,9 +93,10 @@
                             </div>
                         </div>
                     </div>
+                    {{-- ===== TARJETA 2 ===== --}}
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                             <div class="card-body d-flex flex-column align-items-center">
+                            <div class="card-body d-flex flex-column align-items-center">
                                 <img src="{{ asset('images/books/ac-gran-zark.jpg') }}"
                                     alt="Libro 2"
                                     class="img-fluid mb-3"
@@ -80,17 +107,17 @@
                                 <!-- Botón para desplegar -->
                                 <p>
                                     <a class="btn btn-sm btn-resumen" data-bs-toggle="collapse" href="#resumen2" role="button" aria-expanded="false" aria-controls="resumen1">
-                                     Sipnosis
+                                        Sipnosis
                                     </a>
                                 </p>
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen2">
                                     <div class="card card-body">
-                                           Después de que los zarkianos se hayan hecho con la Materia Oscura, 
-                                        la fuente principal de energía del universo, la Confederación no tiene más 
-                                        remedio que buscar un combustible alternativo... Así que Alex y sus amigos 
-                                        saldrán en busca de la Luz Sólida, una fuente de energía legendaria que 
-                                        nadie ha visto ni nadie sabe dónde está... ¿Serán ellos los elegidos por 
+                                        Después de que los zarkianos se hayan hecho con la Materia Oscura,
+                                        la fuente principal de energía del universo, la Confederación no tiene más
+                                        remedio que buscar un combustible alternativo... Así que Alex y sus amigos
+                                        saldrán en busca de la Luz Sólida, una fuente de energía legendaria que
+                                        nadie ha visto ni nadie sabe dónde está... ¿Serán ellos los elegidos por
                                         la profecía para salvar el universo?
                                     </div>
                                 </div>
@@ -100,9 +127,10 @@
                             </div>
                         </div>
                     </div>
+                    {{-- ===== TARJETA 3 ===== --}}
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                             <div class="card-body d-flex flex-column align-items-center">
+                            <div class="card-body d-flex flex-column align-items-center">
                                 <img src="{{ asset('images/books/ab-ultimo-minuto.jpg') }}"
                                     alt="Libro 3"
                                     class="img-fluid mb-3"
@@ -119,20 +147,20 @@
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen3">
                                     <div class="card card-body">
-                                        Llega el tercer libro de la colección «Amanda Black», la nueva serie para 
+                                        Llega el tercer libro de la colección «Amanda Black», la nueva serie para
                                         niños de Juan Gómez-Jurado y Bárbara Montes. Aventuras repletas de misterio,
-                                        acción trepidante y un ritmo frenético. «Su final es tu principio.» Desde que 
-                                        heredó sus poderes, Amanda no ha tenido ni un momento de descanso: entrenos, 
-                                        deberes, misiones... Pero todo está a punto de cambiar, porque por primera vez 
+                                        acción trepidante y un ritmo frenético. «Su final es tu principio.» Desde que
+                                        heredó sus poderes, Amanda no ha tenido ni un momento de descanso: entrenos,
+                                        deberes, misiones... Pero todo está a punto de cambiar, porque por primera vez
                                         ha decidido tomarse el día libre para asistir al baile del instituto. Se comprar
-                                        á un vestido bonito, le pedirá a Jason que la acompañe y todo será genial. 
-                                        ¡El sueño de cualquier adolescente! Sin embargo, las cosas nunca son como una 
-                                        quiere. La mañana del baile, la tía Paula le encomienda a Amanda una misión: 
-                                        evitar que una importante tablilla sumeria que lleva años desaparecida caiga en 
+                                        á un vestido bonito, le pedirá a Jason que la acompañe y todo será genial.
+                                        ¡El sueño de cualquier adolescente! Sin embargo, las cosas nunca son como una
+                                        quiere. La mañana del baile, la tía Paula le encomienda a Amanda una misión:
+                                        evitar que una importante tablilla sumeria que lleva años desaparecida caiga en
                                         las manos equivocadas. Y Amanda, como heredera del culto a la diosa Maat, no puede
                                         permitirlo. ¿Será capaz de robar la tablilla antes de que se pierda para siempre? Y,
-                                        aunque, lo consiga, ¿llegará a tiempo al baile más importante de su adolescencia? Si 
-                                        tienes ganas de vivir una gran aventura, ¡únete a Amanda Black! «LA ADICCIÓN LECTORA 
+                                        aunque, lo consiga, ¿llegará a tiempo al baile más importante de su adolescencia? Si
+                                        tienes ganas de vivir una gran aventura, ¡únete a Amanda Black! «LA ADICCIÓN LECTORA
                                         ESTÁ ASEGURADA.» Adrián Cordellat, El País
                                     </div>
                                 </div>
@@ -142,9 +170,10 @@
                             </div>
                         </div>
                     </div>
+                    {{-- ===== TARJETA 4 ===== --}}
                     <div class="col-6 col-lg-3 mb-3">
                         <div class="card h-100 bg-white text-dark text-center">
-                             <div class="card-body d-flex flex-column align-items-center">
+                            <div class="card-body d-flex flex-column align-items-center">
                                 <img src="{{ asset('images/books/todo-muere.jpg') }}"
                                     alt="Libro 4"
                                     class="img-fluid mb-3"
@@ -161,12 +190,12 @@
                                 <!-- Contenido desplegable -->
                                 <div class="collapse" id="resumen4">
                                     <div class="card card-body">
-                                        LA ESPERA HA TERMINADO Se cierra el círculo del Universo Reina Roja. «Ni 
-                                        en un millón de años podrías imaginarte un desenlace como este». Zenda 
+                                        LA ESPERA HA TERMINADO Se cierra el círculo del Universo Reina Roja. «Ni
+                                        en un millón de años podrías imaginarte un desenlace como este». Zenda
                                         Vuelve el autor más leído en lengua española. EL MAYOR UNIVERSO DE THRILLER
-                                        JAMÁS ESCRITO Nota de la editorial: Esta novela es la clave del Universo 
-                                        Reina Roja, el proyecto narrativo al que Juan Gómez-Jurado ha dedicado los 
-                                        últimos quince años. Por expreso deseo del autor, en este libro no se incluye 
+                                        JAMÁS ESCRITO Nota de la editorial: Esta novela es la clave del Universo
+                                        Reina Roja, el proyecto narrativo al que Juan Gómez-Jurado ha dedicado los
+                                        últimos quince años. Por expreso deseo del autor, en este libro no se incluye
                                         la clásica sinopsis de la historia.
                                     </div>
                                 </div>
@@ -181,8 +210,9 @@
         </div>
     </div>
 </div>
-<!-- Sección Explicativa-->
+{{-- SECCIONES EXPLICATIVAS --}}
 <div class="container-fluid bg-dark text-light">
+    {{-- Primera sección informativa --}}
     <div class="textos row">
         <h3 style="color: #50C878;">
             <i class="bi bi-book"></i> Descubre Nuestra Amplia Colección de Libros de Segunda Mano a Precios Inigualables
@@ -196,6 +226,8 @@
         <p>Explora nuestras categorías, aprovecha nuestras ofertas exclusivas y sumérgete en el apasionante mundo
             de los libros de segunda mano.</p>
     </div>
+
+    {{-- Segunda sección informativa --}}
     <div class="textos row">
         <h3 style="color: #50C878;">
             <i class="bi bi-book"></i> Ahorra comprando libros de segunda mano
@@ -212,7 +244,8 @@
         <h4>¡Feliz lectura!</h4>
     </div>
 </div>
-<!-- Imagen banner-->
+
+{{-- BANNER FINAL --}}
 <div class="container-fluid p-0">
     <img src="{{ asset('images/ui/banner.webp') }}" alt="Banner Libros" class="img-fluid w-100">
 </div>

@@ -1,5 +1,11 @@
 <?php
-
+/*****Definir las URLs que los usuarios pueden visitar ******/
+/**
+ * --------------------------------------------------------------
+ *  Rutas: Home, Gestión de libros, Formularios, 
+ * y Páginas de Información y Legales
+ * --------------------------------------------------------------
+ */
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
