@@ -11,6 +11,8 @@ use App\Http\Controllers\BookController;
 use App\Models\Book;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -90,6 +92,15 @@ Route::get('/gastos-envio', function () {
 Route::get('/quienes-somos', function () {
     return view('informacion.quienes-somos');
 })->name('info.quienes');
+
+/************* Registro *************/
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+/****************************************
+ * Rutas de autenticación (login, logout)
+ ****************************************/
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); Route::post('/login', [LoginController::class, 'login']); Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 
 

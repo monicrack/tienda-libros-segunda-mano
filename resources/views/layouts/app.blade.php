@@ -12,7 +12,7 @@
 
 <body>
 
-{{-- MENÚ PRINCIPAL --}}
+    {{-- MENÚ PRINCIPAL --}}
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid d-flex align-items-center ">
@@ -23,7 +23,7 @@
                         alt="Logo"
                         style="width:100px; height:100px; border-radius:50%;">
                 </div>
-                 <!--  Buscador -->
+                <!--  Buscador -->
                 <form class="d-flex flex-grow-1 me-4"
                     action="{{ route('books.search') }}"
                     method="GET">
@@ -43,17 +43,18 @@
 
             <!-- Botones -->
             <div class="d-flex gap-3 ms-auto">
-                <a href="/login"
+                <a href="{{ route('login') }}"
                     class="btn btn-outline-light btn-lg"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <i class="bi bi-person-fill"></i> Login
                 </a>
 
-                <a href="#"
+                <a href="{{ route('register') }}"
                     class="btn btn-outline-light btn-lg"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <i class="bi bi-person-circle"></i> Registro
                 </a>
+
 
                 <a href="/carrito"
                     class="btn btn-outline-light btn-lg"
@@ -75,7 +76,7 @@
                     </a>
                     <!-- Submnenú Libros -->
                     <ul class="dropdown-menu" style="background-color:#50C878;" aria-labelledby="librosDropdown">
-                        <li><a class="dropdown-item fw-bold"  href="{{ route('books.index') }}">Todos los libros</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('books.index') }}">Todos los libros</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.terror') }}">Terror</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.novela') }}">Novela</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.infantil') }}">Infantil</a></li>
@@ -84,8 +85,8 @@
                     </ul>
                 </div>
 
-               <a href="{{ route('sell') }}" class="text-white fw-bold">Compramos tus libros</a>
-               <a href="{{ route('contact') }}" class="text-white fw-bold">Contacto</a>
+                <a href="{{ route('sell') }}" class="text-white fw-bold">Compramos tus libros</a>
+                <a href="{{ route('contact') }}" class="text-white fw-bold">Contacto</a>
             </div>
         </div>
 
