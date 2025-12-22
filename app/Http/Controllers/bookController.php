@@ -1,4 +1,5 @@
 <?php
+
 /*******El controlador es una clase que gestiona la lógica de las peticiones HTTP *********/
 /**
  * --------------------------------------------------------------
@@ -35,7 +36,7 @@ class BookController extends Controller
 
         return view('books.categoria', compact('books'));
     }
-   
+
 
     /********** Mostrar los detalles de un libro concreto **********/
     public function show($id)
@@ -46,13 +47,19 @@ class BookController extends Controller
     /********** Mostrar 12 libros destacados **********/
     public function novedades()
     {
-        $ids = [238, 250, 170, 179, 184, 219, 201, 148, 203, 197, 155, 102];
+        $ids = [201, 242, 226, 184, 205, 136, 215, 103, 148, 301, 295, 339];
 
-        // Obtiene solo esos libros
+        // Obtener los libros sin orden
         $books = Book::whereIn('id', $ids)->get();
+
+        // Ordenarlos según el orden del array $ids
+        $books = $books->sortBy(function ($book) use ($ids) {
+            return array_search($book->id, $ids);
+        });
 
         return view('books.novedades', compact('books'));
     }
+
 
     /********** Importar libros desde la API de Google Books **********/
     public function importarDesdeApi($busqueda)
@@ -140,6 +147,4 @@ class BookController extends Controller
 
         return view('books.categoria', compact('books', 'generoMostrar'));
     }
-
-  
 }

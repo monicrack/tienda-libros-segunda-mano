@@ -36,7 +36,6 @@ Route::get('/importar-libros/{busqueda}', [BookController::class, 'importarDesde
     ->name('books.importar');
 Route::get('/probar-importacion/{busqueda}', [App\Http\Controllers\BookController::class, 'importarDesdeApi']);
 
-
 /********** Categorías de libros***********************************************
 *********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
 *********Cada una llama al método categoria() del controlador.*****************/
@@ -52,11 +51,9 @@ Route::prefix('libros')->group(function () {
 Route::get('/compramos-tus-libros', [SellController::class, 'index'])->name('sell');
 Route::post('/compramos-tus-libros/enviar', [SellController::class, 'submit'])->name('sell.submit');
 
-
 /***** Página de contacto *******/
 Route::get('/contacto', [ContactController::class, 'index'])->name('contact');
 Route::post('/contacto/enviar', [ContactController::class, 'submit'])->name('contact.submit');
-
 
 /********** Páginas legales**********/
 Route::get('/aviso-legal', function () {
@@ -76,7 +73,6 @@ Route::get('/proteccion-datos', function () {
 })->name('legal.proteccion');
 
 Route::view('/privacidad', 'legal.proteccion')->name('privacidad');
-
 
 /********** Información **********/
 Route::get('/atencion-cliente', function () {

@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
+@section('title', 'Resultados de búsqueda')
+
 @section('content')
     @include('components.lista-libros', [
         'books' => $books,
-        'titulo' => $generoMostrar ?? 'Resultados de la búsqueda'
+        'titulo' => 'Resultados de la búsqueda'
     ])
 @endsection
-

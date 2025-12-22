@@ -11,16 +11,19 @@
 </head>
 
 <body>
+
+{{-- MENÚ PRINCIPAL --}}
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid d-flex align-items-center ">
-            <!-- Logo + Buscador -->
+            <!-- Logo -->
             <div class="d-flex align-items-center flex-grow-1">
                 <div class="logo me-3">
                     <img src="{{ asset('images/ui/logo_dorado_moderno.webp') }}"
                         alt="Logo"
                         style="width:100px; height:100px; border-radius:50%;">
                 </div>
-
+                 <!--  Buscador -->
                 <form class="d-flex flex-grow-1 me-4"
                     action="{{ route('books.search') }}"
                     method="GET">
@@ -59,7 +62,9 @@
                 </a>
             </div>
         </div>
-        <!-- Submenú -->
+
+        {{-- SUBMENÚ --}}
+
         <div class="submenu w-100 mt-3" style="background-color:#50C878;">
             <div class="container-fluid d-flex flex-wrap justify-content-center gap-3 py-2 menu-principal">
                 <a href="{{ url('/') }}" class="text-white fw-bold">Inicio</a>
@@ -88,7 +93,9 @@
     <div class="main">
         @yield('content')
     </div>
-    <!-- Footer -->
+
+    {{-- FOOTER --}}
+
     <footer class="bg-dark text-light pt-4 pb-2" style="border-top: 3px solid #50C878;">
         <div class="container">
             <div class="row">

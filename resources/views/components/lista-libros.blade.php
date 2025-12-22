@@ -1,0 +1,64 @@
+<div class="container-fluid bg-dark text-light py-4 mt-5" id="categoria-libros">
+
+    {{-- Título dinámico --}}
+    @isset($titulo)
+        <h2 class="text-center mb-4" style="color:#D4AF37;">{{ $titulo }}</h2>
+    @endisset
+
+    <div class="row justify-content-center px-3">
+
+        @forelse($books as $book)
+        <div class="col-6 col-lg-3 mb-3">
+            <div class="card h-100 bg-white text-dark text-center d-flex flex-column">
+
+                <div class="card-body d-flex flex-column align-items-center flex-grow-1">
+
+                    @if($book->imagen)
+                    <img src="{{ $book->imagen }}"
+                        alt="{{ $book->titulo }}"
+                        class="img-fluid mb-3"
+                        style="max-width:200px;">
+                    @endif
+
+                    <h5 class="card-title fw-bold">
+                        <a href="{{ route('books.show', $book->id) }}"
+                            class="text-dark text-decoration-none">
+                            {{ $book->titulo }}
+                        </a>
+                    </h5>
+
+                    <div class="mt-auto">
+                        <p>
+                            <a class="btn btn-sm btn-resumen"
+                                data-bs-toggle="collapse"
+                                href="#resumen-{{ $book->id }}"
+                                role="button"
+                                aria-expanded="false"
+                                aria-controls="resumen-{{ $book->id }}">
+                                Sinopsis
+                            </a>
+                        </p>
+
+                        <div class="collapse" id="resumen-{{ $book->id }}">
+                            <div class="card card-body">
+                                <p>{{ $book->descripcion ?? 'Sin descripción disponible.' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="fw-bold text-dark mb-1">Autor: {{ $book->autor }}</p>
+                <p class="fw-bold text-success">{{ $book->precio }}€</p>
+
+                <div class="card-footer bg-transparent border-0 mt-auto">
+                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary">Comprar</a>
+                </div>
+
+            </div>
+        </div>
+        @empty
+        <p>No hay libros disponibles.</p>
+        @endforelse
+
+    </div>
+</div>
