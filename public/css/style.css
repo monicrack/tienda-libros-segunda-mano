@@ -81,6 +81,9 @@ body {
 #libros {
     padding-top: 70px !important; /* ajusta según la altura de tu navbar */
 }
+.book-img {
+    max-width: 120px;/* tamaño de imagen del libro de la vista show en móvil*/
+}
 
 
 /* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
@@ -93,8 +96,11 @@ body {
         width: 100%;
     }
     .menu-principal {
-    gap: 8em !important; /* más aire entre Inicio, Novedades, etc. */
+    gap: 8em !important; /* más espacio entre Inicio, Novedades, etc. */
   }
+  .book-img {
+        min-width: 200px;/* tamaño de imagen del libro de la vista show en desktop*/
+    }
 }
 @media (max-width: 576px) {
     /* xs */

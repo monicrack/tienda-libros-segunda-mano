@@ -22,7 +22,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('books.index', compact('books'));
+        return view('books.buscar', compact('books'));
     }
     /********** Buscar libro por título, autor o ISBN**********/
     public function search(Request $request)
