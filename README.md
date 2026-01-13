@@ -8,7 +8,7 @@ usuarios, libros, pedidos y ventas mediante una arquitectura MVC.
 
 ---
 
-## 📌 Objetivo del proyecto
+## Objetivo del proyecto
 
 Desarrollar una aplicación web que permita a una tienda:
 - Vender libros de segunda mano a los clientes.
@@ -18,7 +18,7 @@ Desarrollar una aplicación web que permita a una tienda:
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - PHP 8.x
 - Laravel
@@ -30,14 +30,14 @@ Desarrollar una aplicación web que permita a una tienda:
 
 ---
 
-## 👥 Roles de usuario
+## Roles de usuario
 
 - **Usuario**: puede registrarse, comprar libros y vender libros a la tienda.
 - **Administrador**: gestiona usuarios, libros, ventas y pedidos.
 
 ---
 
-## ⚙️ Instalación del proyecto
+## Instalación del proyecto
 
 1. Clonar el repositorio:
 ```bash
