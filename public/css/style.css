@@ -14,7 +14,6 @@ body {
     border-radius: 50%;
 }
 .submenu {
-   
     border-bottom: none;
 }
 .submenu a {
@@ -38,7 +37,7 @@ body {
 }
 .btn-resumen {
     background-color: #d4af37 !important; /* fondo blanco */
-    color: #fff !important; /* texto verde esmeralda */
+    color: #fff !important; /* texto blanco */
     border: solid 3px #50c878 !important; /* borde verde esmeralda */
 }
 
@@ -73,7 +72,7 @@ body {
     color: #d4af37 !important;
 }
 .border-top-dorado {
-    border-top: 1px solid #D4AF37; /* fina línea dorada */
+    border-top: 1px solid #d4af37; /* fina línea dorada */
 }
 #categoria-libros {
     padding-top: 100px !important; /* ajusta según la altura de tu navbar */
@@ -82,9 +81,18 @@ body {
     padding-top: 70px !important; /* ajusta según la altura de tu navbar */
 }
 .book-img {
-    max-width: 120px;/* tamaño de imagen del libro de la vista show en móvil*/
+    max-width: 120px; /* tamaño de imagen del libro de la vista show en móvil*/
 }
-
+.boton-vaciar {
+    background-color: black !important;
+    color: #d4af37 !important;
+    border: 2px solid #d4af37 !important;
+    transition: 0.3s ease !important;
+}
+.boton-vaciar:hover {
+    background-color: white !important;
+    border-color: #d4af37 !important;
+}
 
 /* NAVBAR CON SUBMENÚ - SOLO DESKTOP */
 @media (min-width: 992px) {
@@ -96,10 +104,10 @@ body {
         width: 100%;
     }
     .menu-principal {
-    gap: 8em !important; /* más espacio entre Inicio, Novedades, etc. */
-  }
-  .book-img {
-        min-width: 200px;/* tamaño de imagen del libro de la vista show en desktop*/
+        gap: 8em !important; /* más espacio entre Inicio, Novedades, etc. */
+    }
+    .book-img {
+        min-width: 200px; /* tamaño de imagen del libro de la vista show en desktop*/
     }
 }
 @media (max-width: 576px) {
@@ -110,9 +118,22 @@ body {
     .navbar {
         border-bottom: 0px;
     }
+    .nav-btn {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.75rem !important;
+        line-height: 1rem !important;
+    }
+    .nav-btn i {
+        font-size: 0.9rem !important;
+    }
+    .navbar form.d-flex {
+        margin-right: 0 !important;
+        flex-grow: 0 !important;
+        width: 100% !important;
+    }
     .logo img {
-        width: 60px;
-        height: 60px;
+        width: 60px !important;
+        height: 60px !important;
     }
     .buscador {
         display: flex; /* mantiene el input y botón en fila */

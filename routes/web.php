@@ -13,6 +13,11 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Tienda\CarritoController;
+use App\Http\Controllers\Tienda\CompraVendedorController;
+use App\Http\Controllers\Tienda\VentaClienteController;
+use App\Http\Controllers\Tienda\InventarioController;
+
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -42,6 +47,7 @@ Route::get('/probar-importacion/{busqueda}', [App\Http\Controllers\BookControlle
 *********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
 *********Cada una llama al método categoria() del controlador.*****************/
 Route::prefix('libros')->group(function () {
+     Route::get('/todos', [BookController::class, 'categoria'])->name('libros.todos');
     Route::get('/terror', [BookController::class, 'categoria'])->name('libros.terror');
     Route::get('/novela', [BookController::class, 'categoria'])->name('libros.novela');
     Route::get('/infantil', [BookController::class, 'categoria'])->name('libros.infantil');
@@ -96,12 +102,47 @@ Route::get('/quienes-somos', function () {
 /************* Registro *************/
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
-/****************************************
- * Rutas de autenticación (login, logout)
- ****************************************/
+
+/*********** Rutas de autenticación (login, logout) **************/
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); Route::post('/login', [LoginController::class, 'login']); Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+/*********** Rutas del carrito de la compra **************/
+Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
+Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::post('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+Route::post('/carrito/vaciar', [CarritoController::class, 'vaciar'])->name('carrito.vaciar');
+Route::post('/finalizar-compra', [CarritoController::class, 'finalizarCompra'])
+    ->middleware('auth')
+    ->name('carrito.finalizar');
 
 
+Route::get('/checkout', function () {
+    return "Página de compra en construcción";
+})->name('checkout');
+
+// Compras a vendedores
+Route::post('/comprar-vendedor', [CompraVendedorController::class, 'comprarAlVendedor'])->name('comprar.vendedor');
+Route::get('/mis-compras-vendedor', [CompraVendedorController::class, 'misComprasVendedor'])->name('compras.vendedor');
+
+// Ventas a clientes
+Route::post('/vender-cliente', [VentaClienteController::class, 'venderAlCliente'])->name('vender.cliente');
+Route::get('/mis-compras', [VentaClienteController::class, 'misComprasCliente'])->name('compras.cliente');
+
+
+// Inventario de la tienda 
+Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index'); 
+Route::get('/inventario/editar/{id}', [InventarioController::class, 'editar'])->name('inventario.editar'); 
+Route::post('/inventario/actualizar/{id}', [InventarioController::class, 'actualizar'])->name('inventario.actualizar');
+
+
+
+
+
+Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
+    ->name('ventas.form');
+
+
+Route::post('/vender/guardar', [CompraVendedorController::class, 'comprarAlVendedor'])
+    ->name('ventas.guardar');
 
 

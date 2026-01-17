@@ -60,7 +60,6 @@ class BookController extends Controller
         return view('books.novedades', compact('books'));
     }
 
-
     /********** Importar libros desde la API de Google Books **********/
     public function importarDesdeApi($busqueda)
     {
@@ -129,22 +128,30 @@ class BookController extends Controller
 
 
     /*********** Mostrar los libros filtrados por categoría (género)*********/
-    public function categoria(Request $request)
-    {
-        $genero = $request->segment(2);
+   public function categoria(Request $request)
+{
+    $genero = $request->segment(2);
 
-        $nombresBonitos = [
-            'fantasia' => 'Fantasía',
-            'ciencia-ficcion' => 'Ciencia Ficción',
-            'novela' => 'Novela',
-            'terror' => 'Terror',
-            'infantil' => 'Infantil',
-        ];
+    session(['ultima_categoria' => $genero]);
 
-        $generoMostrar = $nombresBonitos[$genero] ?? ucfirst($genero);
+    $nombresBonitos = [
+        'todos' => 'Todos los libros',
+        'fantasia' => 'Fantasía',
+        'ciencia-ficcion' => 'Ficción',
+        'novela' => 'Novela',
+        'terror' => 'Terror',
+        'infantil' => 'Infantil',
+    ];
 
+    $generoMostrar = $nombresBonitos[$genero] ?? ucfirst($genero);
+
+    // Si es "todos", no filtramos
+    if ($genero === 'todos') {
+        $books = Book::all();
+    } else {
         $books = Book::where('genero', $genero)->get();
-
-        return view('books.categoria', compact('books', 'generoMostrar'));
     }
+
+    return view('books.categoria', compact('books', 'generoMostrar'));
+}
 }

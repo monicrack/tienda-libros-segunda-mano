@@ -27,14 +27,16 @@
             <div class="d-flex justify-content-between mt-4">
 
                 {{-- Volver al listado --}}
-                <a href="{{ route('books.novedades') }}" class="btn btn-primary">
+                <a href="{{ route('libros.todos') }}" class="btn btn-primary">
                     Volver al listado
                 </a>
 
                 {{-- Comprar --}}
-                <a href="#" class="btn btn-primary">
-                    Comprar
-                </a>
+                <form action="{{ route('carrito.agregar', $book->id) }}" method="POST">
+    @csrf
+    <button class="btn btn-primary">Añadir al carrito</button>
+</form>
+
             </div>
         </div>
     </div>

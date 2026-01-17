@@ -12,9 +12,16 @@
 
 <body>
 
+
     {{-- MENÚ PRINCIPAL --}}
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+        @if(session('success'))
+        <div class="alert text-light text-center mb-0">
+            {{ session('success') }}
+        </div>
+        @endif
         <div class="container-fluid d-flex align-items-center ">
             <!-- Logo -->
             <div class="d-flex align-items-center flex-grow-1">
@@ -43,25 +50,79 @@
 
             <!-- Botones -->
             <div class="d-flex gap-3 ms-auto">
+
+                {{-- Si NO está logueado --}}
+                @guest
                 <a href="{{ route('login') }}"
-                    class="btn btn-outline-light btn-lg"
+                    class="btn btn-outline-light btn-lg nav-btn"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <i class="bi bi-person-fill"></i> Login
                 </a>
 
                 <a href="{{ route('register') }}"
-                    class="btn btn-outline-light btn-lg"
+                    class="btn btn-outline-light btn-lg nav-btn"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <i class="bi bi-person-circle"></i> Registro
                 </a>
+                @endguest
 
 
-                <a href="/carrito"
-                    class="btn btn-outline-light btn-lg"
+                {{-- Si SÍ está logueado --}}
+                @auth
+                <span class="text-light align-self-center fw-bold">
+                    Hola, {{ Auth::user()->name }}
+                </span>
+
+                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                    @csrf
+                    <button class="btn btn-outline-light btn-lg nav-btn"
+                        style="color:#D4AF37; border:2px solid #D4AF37;">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                    </button>
+                </form>
+
+                <button class="btn btn-outline-light btn-lg nav-btn"
+                    style="color:#D4AF37; border:2px solid #D4AF37;">
+
+                    <a class="nav-link" href="{{ route('ventas.form') }}">Vender a la tienda</a>
+                </button>
+
+                <button class="btn btn-outline-light btn-lg nav-btn"
+                    style="color:#D4AF37; border:2px solid #D4AF37;">
+                    <a class="nav-link" href="{{ route('compras.cliente') }}" style="color:#D4AF37;">
+                        Mis compras
+                    </a>
+                </button>
+
+                <button class="btn btn-outline-light btn-lg nav-btn"
+                    style="color:#D4AF37; border:2px solid #D4AF37;">
+                    <a class="nav-link" href="{{ route('compras.vendedor') }}" style="color:#D4AF37;">
+                        Mis ventas 
+                    </a>
+                </button>
+                @endauth
+
+
+                {{-- Carrito --}}
+                @php
+                $totalCarrito = collect(session('carrito', []))->sum('cantidad');
+                @endphp
+
+                <a href="{{ route('carrito.index') }}"
+                    class="btn btn-outline-light btn-lg nav-btn position-relative"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <i class="bi bi-cart-fill"></i> Mi Carrito
+
+                    @if($totalCarrito > 0)
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ $totalCarrito }}
+                    </span>
+                    @endif
                 </a>
+
+
             </div>
+
         </div>
 
         {{-- SUBMENÚ --}}
@@ -76,7 +137,7 @@
                     </a>
                     <!-- Submnenú Libros -->
                     <ul class="dropdown-menu" style="background-color:#50C878;" aria-labelledby="librosDropdown">
-                        <li><a class="dropdown-item fw-bold" href="{{ route('books.index') }}">Todos los libros</a></li>
+                        <li><a class="dropdown-item fw-bold" href="{{ route('libros.todos') }}">Todos los libros</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.terror') }}">Terror</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.novela') }}">Novela</a></li>
                         <li><a class="dropdown-item fw-bold" href="{{ route('libros.infantil') }}">Infantil</a></li>

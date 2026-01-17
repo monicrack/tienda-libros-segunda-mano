@@ -3,7 +3,7 @@
 @section('title', 'Registro de usuario')
 
 @section('content')
-<div class="container-fluid d-flex justify-content-center mt-5 py-4 bg-black" id ="categoria-libros">
+<div class="container-fluid d-flex justify-content-center mt-5 py-4 bg-black" id="categoria-libros">
     <div class="col-12 col-lg-6">
 
         <div class="card shadow">
@@ -13,13 +13,13 @@
 
                 {{-- Mensajes de error --}}
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
 
                 {{-- Formulario de registro --}}
@@ -30,33 +30,43 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input id="name" type="text"
-                               class="form-control @error('name') is-invalid @enderror"
-                               name="name" value="{{ old('name') }}" required autofocus>
+                            class="form-control @error('name') is-invalid @enderror"
+                            name="name" value="{{ old('name') }}" required autofocus>
                     </div>
 
                     {{-- Email --}}
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input id="email" type="email"
-                               class="form-control @error('email') is-invalid @enderror"
-                               name="email" value="{{ old('email') }}" required>
+                            class="form-control @error('email') is-invalid @enderror"
+                            name="email" value="{{ old('email') }}" required>
                     </div>
 
                     {{-- Contraseña --}}
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
                         <input id="password" type="password"
-                               class="form-control @error('password') is-invalid @enderror"
-                               name="password" required>
+                            class="form-control @error('password') is-invalid @enderror"
+                            name="password" required>
                     </div>
 
                     {{-- Confirmación --}}
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
                         <input id="password_confirmation" type="password"
-                               class="form-control"
-                               name="password_confirmation" required>
+                            class="form-control"
+                            name="password_confirmation" required>
                     </div>
+                    {{-- Tipo de usuario --}}
+                    <div class="mb-3">
+                        <label for="rol" class="form-label">Tipo de usuario</label>
+                        <select name="rol" id="rol"  class="form-select" required>
+                            <option value="comprador">Comprador</option>
+                            <option value="vendedor">Vendedor</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                    </div>
+
 
                     {{-- Botón --}}
                     <div class="d-grid mt-4">
