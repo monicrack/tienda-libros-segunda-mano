@@ -1,7 +1,12 @@
-body {
-    padding-top: 68px; /* ajusta según la altura real del navbar */
+body{
+    padding-top: 68px; 
     background-color: #fff; /* asegura que el fondo sea uniforme */
 }
+.admin-layout { 
+    padding-top: 0 !important; 
+    background-color: black !important; 
+}
+
 .titulo-contenedor {
     text-align: center;
 }
@@ -75,10 +80,10 @@ body {
     border-top: 1px solid #d4af37; /* fina línea dorada */
 }
 #categoria-libros {
-    padding-top: 100px !important; /* ajusta según la altura de tu navbar */
+    padding-top: 100px !important; 
 }
 #libros {
-    padding-top: 70px !important; /* ajusta según la altura de tu navbar */
+    padding-top: 70px !important;
 }
 .book-img {
     max-width: 120px; /* tamaño de imagen del libro de la vista show en móvil*/
@@ -130,6 +135,9 @@ body {
         margin-right: 0 !important;
         flex-grow: 0 !important;
         width: 100% !important;
+    }
+    .wrap-xs { 
+        flex-wrap: wrap; 
     }
     .logo img {
         width: 60px !important;

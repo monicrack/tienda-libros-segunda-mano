@@ -9,9 +9,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+<!-- Banner para aceptar cookies-->
+@if(!Cookie::get('cookies_aceptadas_relibromania'))
+<div id="cookie-banner" style="
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    border-top: 3px solid #D4AF37;
+    z-index: 9999;
+">
+    <span>
+        Usamos cookies para mejorar tu experiencia.
+        <a href="{{ route('legal.cookies') }}" style="color:#D4AF37; text-decoration: underline;">
+            Política de Cookies
+        </a>
+    </span>
+
+    <form action="{{ route('cookies.aceptar') }}" method="POST" style="display:inline;">
+        @csrf
+        <button class="btn btn-sm" style="background:#50C878; color:#000; margin-left:10px;">
+            Aceptar
+        </button>
+    </form>
+</div>
+@endif
 
 <body>
-
 
     {{-- MENÚ PRINCIPAL --}}
 
@@ -97,7 +125,7 @@
                 <button class="btn btn-outline-light btn-lg nav-btn"
                     style="color:#D4AF37; border:2px solid #D4AF37;">
                     <a class="nav-link" href="{{ route('compras.vendedor') }}" style="color:#D4AF37;">
-                        Mis ventas 
+                        Mis ventas
                     </a>
                 </button>
                 @endauth

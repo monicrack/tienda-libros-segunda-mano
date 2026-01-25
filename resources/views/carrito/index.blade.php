@@ -79,7 +79,7 @@
 
 
         {{-- Vaciar carrito --}}
-        <form action="{{ route('carrito.vaciar') }}" method="POST" ">
+        <form action="{{ route('carrito.vaciar') }}" method="POST">
         @csrf
         <button class=" btn btn-lg boton-vaciar">
             Vaciar carrito

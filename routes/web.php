@@ -1,4 +1,5 @@
 <?php
+
 /*****Definir las URLs que los usuarios pueden visitar ******/
 /**
  * --------------------------------------------------------------
@@ -6,6 +7,7 @@
  * y Páginas de Información y Legales
  * --------------------------------------------------------------
  */
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Models\Book;
@@ -17,7 +19,9 @@ use App\Http\Controllers\Tienda\CarritoController;
 use App\Http\Controllers\Tienda\CompraVendedorController;
 use App\Http\Controllers\Tienda\VentaClienteController;
 use App\Http\Controllers\Tienda\InventarioController;
-
+use Illuminate\Support\Facades\Cookie;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminBookController;
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -44,10 +48,10 @@ Route::get('/importar-libros/{busqueda}', [BookController::class, 'importarDesde
 Route::get('/probar-importacion/{busqueda}', [App\Http\Controllers\BookController::class, 'importarDesdeApi']);
 
 /********** Categorías de libros***********************************************
-*********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
-*********Cada una llama al método categoria() del controlador.*****************/
+ *********Todas las rutas que empiezan por /libros/... se agrupan aquí.*********
+ *********Cada una llama al método categoria() del controlador.*****************/
 Route::prefix('libros')->group(function () {
-     Route::get('/todos', [BookController::class, 'categoria'])->name('libros.todos');
+    Route::get('/todos', [BookController::class, 'categoria'])->name('libros.todos');
     Route::get('/terror', [BookController::class, 'categoria'])->name('libros.terror');
     Route::get('/novela', [BookController::class, 'categoria'])->name('libros.novela');
     Route::get('/infantil', [BookController::class, 'categoria'])->name('libros.infantil');
@@ -82,6 +86,13 @@ Route::get('/proteccion-datos', function () {
 
 Route::view('/privacidad', 'legal.proteccion')->name('privacidad');
 
+/****Aceptar Cookies********/
+Route::post('/aceptar-cookies', function () {
+    Cookie::queue('cookies_aceptadas_relibromania', true, 60 * 24 * 365); // 1 año
+    return back();
+})->name('cookies.aceptar');
+
+
 /********** Información **********/
 Route::get('/atencion-cliente', function () {
     return view('informacion.atencion');
@@ -104,7 +115,9 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register']);
 
 /*********** Rutas de autenticación (login, logout) **************/
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); Route::post('/login', [LoginController::class, 'login']); Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /*********** Rutas del carrito de la compra **************/
 Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
@@ -130,19 +143,27 @@ Route::get('/mis-compras', [VentaClienteController::class, 'misComprasCliente'])
 
 
 // Inventario de la tienda 
-Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index'); 
-Route::get('/inventario/editar/{id}', [InventarioController::class, 'editar'])->name('inventario.editar'); 
+Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
+Route::get('/inventario/editar/{id}', [InventarioController::class, 'editar'])->name('inventario.editar');
 Route::post('/inventario/actualizar/{id}', [InventarioController::class, 'actualizar'])->name('inventario.actualizar');
 
-
-
-
-
+// Comprar libros a vendedores - formulario
 Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
     ->name('ventas.form');
-
-
 Route::post('/vender/guardar', [CompraVendedorController::class, 'comprarAlVendedor'])
     ->name('ventas.guardar');
-
-
+/********** Rutas de administración (solo para admins) **************/
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        // Dashboard del administrador
+        Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+        // CRUD de libros 
+        Route::resource('libros', AdminBookController::class);
+        // Inventario 
+        Route::get('/inventario', [AdminBookController::class, 'inventario'])
+            ->name('inventario');
+        Route::get('/buscar', [AdminBookController::class, 'search'])
+        ->name('libros.search');
+    });

@@ -3,10 +3,10 @@
 @section('title', 'Mis compras')
 
 @section('content')
-<div class="container-fluid d-flex flex-column justify-content-center text-center mt-5 py-4 bg-black" id="categoria-libros">
+<div class="container-fluid d-flex flex-column justify-content-center text-center py-4 bg-black" id="categoria-libros">
 
     <h2 class="mb-4" id="libros" style="color:#D4AF37;">Mis compras</h2>
-
+    
     <table class="table table-white table-striped">
         <thead>
             <tr>

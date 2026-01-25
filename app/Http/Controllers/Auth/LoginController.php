@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -21,12 +22,21 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'Has iniciado sesión correctamente.');
+            return $this->authenticated($request, Auth::user());
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales no son correctas.',
         ]);
+    }
+
+    protected function authenticated($request, $user)
+    {
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect('/'); // comprador
     }
 
     public function logout(Request $request)

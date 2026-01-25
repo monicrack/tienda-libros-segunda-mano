@@ -13,7 +13,7 @@ class Authenticate extends Middleware
             // Guardamos la URL previa para volver después del login
             session(['url.intended' => url()->previous()]);
 
-            return route('login');
+            return route('register');
         }
     }
 }

@@ -80,7 +80,7 @@
                 {{-- Enlace a login --}}
                 <p class="text-center mt-3">
                     ¿Ya tienes cuenta?
-                    <a href="{{ route('login') }}">Inicia sesión</a>
+                    <a href="{{ route('login') }}" class="fw-bold" style="color:#50C878; text-decoration: none;">Inicia sesión</a>
                 </p>
 
             </div>

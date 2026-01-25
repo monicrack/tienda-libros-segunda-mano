@@ -7,6 +7,29 @@
 
     <h2 class="mb-4" style="color:#D4AF37;">Vender libro a la tienda</h2>
 
+    <!-- Sección informativa sobre la valoración -->
+    <div class="col-12 col-lg-8 mx-auto mb-4">
+        <div class="p-3 rounded" style="background-color:#111; border:1px solid #D4AF37;">
+            <h4 class="text-center mb-3" style="color:#D4AF37;">Información sobre la valoración del libro</h4>
+
+            <p class="text-white" style="line-height:1.6;">
+                El precio mostrado como <strong>“Precio que paga la tienda”</strong> es una
+                <strong>estimación máxima</strong> basada en el valor del libro en catálogo.
+            </p>
+
+            <p class="text-white" style="line-height:1.6;">
+                Una vez recibamos el libro y comprobemos su estado real
+                (conservación, subrayados, edición, demanda…), realizaremos una
+                <strong>valoración exacta</strong>.
+            </p>
+
+            <p class="text-white fw-bold" style="line-height:1.6;">
+                Si el estado coincide con lo indicado, recibirás el importe máximo.
+                Si no, ajustaremos la valoración de forma justa y transparente.
+            </p>
+        </div>
+    </div>
+
     <form action="{{ route('ventas.guardar') }}" method="POST" class="bg-black p-4 rounded">
         @csrf
 
