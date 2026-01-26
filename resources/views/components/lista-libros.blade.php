@@ -2,7 +2,7 @@
 
     {{-- Título dinámico --}}
     @isset($titulo)
-        <h2 class="text-center mb-4" style="color:#D4AF37;">{{ $titulo }}</h2>
+    <h2 class="text-center mb-4" style="color:#D4AF37;">{{ $titulo }}</h2>
     @endisset
 
     <div class="row justify-content-center px-3">
@@ -49,6 +49,14 @@
 
                 <p class="fw-bold text-dark mb-1">Autor: {{ $book->autor }}</p>
                 <p class="fw-bold text-success">{{ $book->precio }}€</p>
+
+                <p class="fw-bold mb-1" style="color:#D4AF37;">
+                    Estado:
+                    <span style="color:#50C878;">
+                        {{ ucfirst($book->estado) }}
+                    </span>
+                </p>
+
 
                 <div class="card-footer bg-transparent border-0 mt-auto">
                     <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary">Comprar</a>
