@@ -1,7 +1,9 @@
 <?php
+
 /*** Modelo: Book
  * Representa un libro dentro del sistema.
  */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -28,5 +30,9 @@ class Book extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function inventario()
+    {
+        return $this->hasOne(Inventario::class, 'book_id');
     }
 }

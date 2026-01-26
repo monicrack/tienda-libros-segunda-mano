@@ -147,6 +147,7 @@ Route::get('/inventario', [InventarioController::class, 'index'])->name('inventa
 Route::get('/inventario/editar/{id}', [InventarioController::class, 'editar'])->name('inventario.editar');
 Route::post('/inventario/actualizar/{id}', [InventarioController::class, 'actualizar'])->name('inventario.actualizar');
 
+
 // Comprar libros a vendedores - formulario
 Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
     ->name('ventas.form');
@@ -160,10 +161,22 @@ Route::middleware(['auth', 'admin'])
         // Dashboard del administrador
         Route::get('/', [AdminController::class, 'index'])->name('dashboard');
         // CRUD de libros 
+        Route::get('/libros/eliminar', [AdminBookController::class, 'vistaEliminar'])
+            ->name('libros.delete');
+        Route::get('/libros/actualizar', [AdminBookController::class, 'vistaActualizar'])
+            ->name('libros.actualizar');
+
         Route::resource('libros', AdminBookController::class);
+
+
         // Inventario 
         Route::get('/inventario', [AdminBookController::class, 'inventario'])
             ->name('inventario');
         Route::get('/buscar', [AdminBookController::class, 'search'])
-        ->name('libros.search');
+            ->name('libros.search');
+        Route::get('/inventario/{libro}/stock', [AdminBookController::class, 'editarStock'])
+            ->name('inventario.stock.edit');
+
+        Route::put('/inventario/{libro}/stock', [AdminBookController::class, 'actualizarStock'])
+            ->name('inventario.stock.update');
     });

@@ -1,11 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Gestión de Libros')
+@section('title', 'Eliminar de Libros')
 
 @section('content')
 <div class="container-fluid  text-center py-4" id="categoria-libros">
-    <h1 style="color:#50C878;">Gestión de Libros</h1>
-
+    <h1 style="color:#50C878;">Eliminar libros</h1>
     <table class="table table-dark table-striped mt-4">
         <thead>
             <tr style="color:#50C878;">
@@ -47,23 +46,13 @@
                 <td>{{ $libro->created_at->format('d/m/Y') }}</td>
                 <td>{{ $libro->updated_at->format('d/m/Y') }}</td>
                 <td>
-                    <a href="{{ route('admin.libros.create') }}"
-                    class="btn btn-sm mb-2"
-                        style="background:black; color:#D4AF37;; border:1px solid #D4AF37;">
-                       Añadir
-                    </a>
-                    <a href="{{ route('admin.libros.edit', $libro) }}"
-                        class="btn btn-sm"
-                        style="background:black; color:#50C878; border:1px solid #50C878;">
-                        Editar
-                    </a>
                     <form action="{{ route('admin.libros.destroy', $libro) }}"
                         method="POST"
                         style="display:inline-block;">
                         @csrf
                         @method('DELETE')
 
-                        <button class="btn btn-sm mt-2 "
+                        <button class="btn btn-lg mt-4"
                             style="background:black; color:#E63946; border:1px solid #E63946;"
                             onclick="return confirm('¿Estás segur@ de que quieres eliminar este libro?');">
                             Borrar
