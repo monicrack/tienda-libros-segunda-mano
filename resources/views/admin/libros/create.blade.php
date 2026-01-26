@@ -5,6 +5,12 @@
 @section('content')
 <div class="container mt-5 text-center py-4" id="categoria-libros">
     <h1 style="color:#50C878;">Añadir Libro</h1>
+    <div class="input-group mb-3">
+        <input type="text" id="titulo_buscar" class="form-control" placeholder="Introduce un título">
+        <button type="button" id="buscarGoogle" class="btn btn-success">
+            Buscar en Google Books
+        </button>
+    </div>
 
     <form action="{{ route('admin.libros.store') }}" method="POST" class="mt-4">
         @csrf
@@ -34,3 +40,37 @@
     </form>
 </div>
 @endsection
+@push('scripts')
+<script>
+document.getElementById('buscarGoogle').addEventListener('click', function () {
+    const titulo = document.getElementById('titulo_buscar').value;
+
+    if (!titulo) {
+        alert("Introduce un título para buscar");
+        return;
+    }
+
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURIComponent(titulo)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (!data.items || data.items.length === 0) {
+                alert("No se encontró ningún libro con ese título");
+                return;
+            }
+
+            const info = data.items[0].volumeInfo;
+
+            document.querySelector('input[name="titulo"]').value = info.title || '';
+            document.querySelector('input[name="autor"]').value = info.authors ? info.authors.join(', ') : '';
+            document.querySelector('input[name="editorial"]').value = info.publisher || '';
+            document.querySelector('textarea[name="descripcion"]').value = info.description || '';
+            document.querySelector('input[name="imagen"]').value = info.imageLinks ? info.imageLinks.thumbnail : '';
+            document.querySelector('input[name="isbn"]').value = info.industryIdentifiers ? info.industryIdentifiers[0].identifier : '';
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Error al conectar con Google Books");
+        });
+});
+</script>
+@endpush
