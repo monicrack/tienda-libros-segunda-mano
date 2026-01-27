@@ -26,11 +26,28 @@
                         <td>{{ $book->titulo }}</td>
                         <td>{{ $book->autor }}</td>
                         <td>
+                             <a href="{{ route('admin.libros.create') }}"
+                                class="btn btn-sm"
+                                    style="background:black; color:#D4AF37;; border:1px solid #D4AF37;">
+                                Añadir
+                            </a>
                             <a href="{{ route('admin.libros.edit', $book->id) }}"
                                class="btn btn-sm"
-                               style="background:black; color:#D4AF37; border:1px solid #D4AF37;">
+                               style="background:black; color:#50C878; border:1px solid #50C878;">
                                 Editar
                             </a>
+                            <form action="{{ route('admin.libros.destroy', $book) }}"
+                                method="POST"
+                                style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+
+                                <button class="btn btn-sm"
+                                    style="background:black; color:#E63946; border:1px solid #E63946;"
+                                    onclick="return confirm('¿Estás segur@ de que quieres eliminar este libro?');">
+                                    Borrar
+                                </button>
+                            </form>                  
                         </td>
                     </tr>
                 @endforeach
