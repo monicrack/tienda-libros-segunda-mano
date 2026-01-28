@@ -26,11 +26,6 @@
                         <td>{{ $book->titulo }}</td>
                         <td>{{ $book->autor }}</td>
                         <td>
-                             <a href="{{ route('admin.libros.create') }}"
-                                class="btn btn-sm"
-                                    style="background:black; color:#D4AF37;; border:1px solid #D4AF37;">
-                                Añadir
-                            </a>
                             <a href="{{ route('admin.libros.edit', $book->id) }}"
                                class="btn btn-sm"
                                style="background:black; color:#50C878; border:1px solid #50C878;">
