@@ -9,21 +9,21 @@ use App\Models\Book;
 
 class InventarioController extends Controller
 {
-    // Mostrar inventario completo
+    /**** Mostrar inventario completo******/
     public function index()
     {
         $inventario = Inventario::with('libro')->get();
         return view('inventario.index', compact('inventario'));
     }
 
-    // Formulario para editar un libro del inventario
+    /**** Formulario para editar un libro del inventario *****/
     public function editar($id)
     {
         $item = Inventario::with('libro')->findOrFail($id);
         return view('inventario.editar', compact('item'));
     }
 
-    // Guardar cambios en inventario
+    /**** Guardar cambios en inventario *****/
     public function actualizar(Request $request, $id)
     {
         $request->validate([

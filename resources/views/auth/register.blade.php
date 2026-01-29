@@ -26,7 +26,6 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
-                    {{-- Nombre --}}
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
                         <input id="name" type="text"
@@ -34,7 +33,6 @@
                             name="name" value="{{ old('name') }}" required autofocus>
                     </div>
 
-                    {{-- Email --}}
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input id="email" type="email"
@@ -42,7 +40,6 @@
                             name="email" value="{{ old('email') }}" required>
                     </div>
 
-                    {{-- Contraseña --}}
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
                         <input id="password" type="password"
@@ -50,25 +47,13 @@
                             name="password" required>
                     </div>
 
-                    {{-- Confirmación --}}
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Confirmar contraseña</label>
                         <input id="password_confirmation" type="password"
                             class="form-control"
                             name="password_confirmation" required>
                     </div>
-                    {{-- Tipo de usuario --}}
-                    <div class="mb-3">
-                        <label for="rol" class="form-label">Tipo de usuario</label>
-                        <select name="rol" id="rol"  class="form-select" required>
-                            <option value="comprador">Comprador</option>
-                            <option value="vendedor">Vendedor</option>
-                            <option value="ambos">Ambos</option>
-                        </select>
-                    </div>
-
-
-                    {{-- Botón --}}
+                    
                     <div class="d-grid mt-4">
                         <button type="submit" class="btn btn-primary">
                             Registrarse
@@ -77,7 +62,6 @@
 
                 </form>
 
-                {{-- Enlace a login --}}
                 <p class="text-center mt-3">
                     ¿Ya tienes cuenta?
                     <a href="{{ route('login') }}" class="fw-bold" style="color:#50C878; text-decoration: none;">Inicia sesión</a>

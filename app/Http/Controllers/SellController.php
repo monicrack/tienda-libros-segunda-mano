@@ -7,11 +7,12 @@ use App\Models\SellRequest;
 
 class SellController extends Controller
 {
+    /******* Muestra el formulario para vender un libro ********/
     public function index()
     {
         return view('sell');
     }
-
+    /******* Procesa el envío del formulario de venta de libros ********/
    public function submit(Request $request)
 {
     $request->validate([
@@ -21,7 +22,6 @@ class SellController extends Controller
         'fotos.*' => 'image|max:2048'
     ]);
 
-    // Guardar fotos si existen
     $fotosGuardadas = [];
 
     if ($request->hasFile('fotos')) {
@@ -30,7 +30,6 @@ class SellController extends Controller
             $fotosGuardadas[] = $nombre;
         }
     }
-
     // Guardar en la base de datos
     SellRequest::create([
         'nombre' => $request->nombre,

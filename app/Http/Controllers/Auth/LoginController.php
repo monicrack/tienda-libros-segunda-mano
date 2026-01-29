@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /******** Muestra el formulario de login *******/
     public function showLoginForm()
     {
         return view('auth.login');
     }
-
+    /******** Procesa el login del usuario *******/
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -29,7 +30,7 @@ class LoginController extends Controller
             'email' => 'Las credenciales no son correctas.',
         ]);
     }
-
+    /******** Redirige según el rol del usuario tras el login *******/
     protected function authenticated($request, $user)
     {
         if ($user->role === 'admin') {
@@ -38,7 +39,7 @@ class LoginController extends Controller
 
         return redirect('/'); // comprador
     }
-
+    /******** Cierra la sesión del usuario *******/
     public function logout(Request $request)
     {
         Auth::logout();

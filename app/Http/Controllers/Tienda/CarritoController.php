@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Book;
 
-
 class CarritoController extends Controller
 {
+    /******** Muestra el contenido del carrito *******/
     public function index()
     {
         $carrito = session('carrito', []);
         return view('carrito.index', compact('carrito'));
     }
-
+    /******** Agrega un libro al carrito *******/
     public function agregar($id)
     {
         $book = Book::findOrFail($id);
@@ -37,7 +37,7 @@ class CarritoController extends Controller
 
         return back()->with('success', 'Libro añadido al carrito.');
     }
-
+    /******** Elimina un libro del carrito *******/
     public function eliminar($id)
     {
         $carrito = session('carrito', []);
@@ -52,43 +52,34 @@ class CarritoController extends Controller
                 unset($carrito[$id]);
             }
         }
-
         session(['carrito' => $carrito]);
-
         return back();
     }
-
-
+    /******** Vacía todo el carrito *******/
     public function vaciar()
     {
         session()->forget('carrito');
         return back();
     }
+    /******** Finaliza la compra y registra las ventas *******/
     public function finalizarCompra()
-{
-    $carrito = session('carrito', []);
+    {
+        $carrito = session('carrito', []);
 
-    if (empty($carrito)) {
-        return back()->with('error', 'El carrito está vacío.');
+        if (empty($carrito)) {
+            return back()->with('error', 'El carrito está vacío.');
+        }
+        foreach ($carrito as $item) {
+            app(\App\Http\Controllers\Tienda\VentaClienteController::class)->venderAlCliente(
+                new \Illuminate\Http\Request([
+                    'book_id' => $item['id'],
+                    'cantidad' => $item['cantidad'],
+                    'precio_venta' => $item['precio']
+                ])
+            );
+        }
+        session()->forget('carrito');
+
+        return redirect()->route('compras.cliente')->with('success', 'Compra realizada con éxito.');
     }
-
-    // Recorremos cada libro del carrito
-    foreach ($carrito as $item) {
-
-        // Registramos la venta al cliente usando el controlador de ventas
-        app(\App\Http\Controllers\Tienda\VentaClienteController::class)->venderAlCliente(
-            new \Illuminate\Http\Request([
-                'book_id' => $item['id'],
-                'cantidad' => $item['cantidad'],
-                'precio_venta' => $item['precio']
-            ])
-        );
-    }
-
-    // Vaciar carrito después de comprar
-    session()->forget('carrito');
-
-    return redirect()->route('compras.cliente')->with('success', 'Compra realizada con éxito.');
-}
-
 }

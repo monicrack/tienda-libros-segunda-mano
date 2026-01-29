@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -8,25 +9,26 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+    /******** Muestra el formulario de registro *******/
     public function showRegistrationForm()
     {
         return view('auth.register');
     }
-
+    /******** Procesa el registro del usuario *******/
     public function register(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|confirmed',
-            
+
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'rol' => $request->rol,
+            'rol' => 'ambos',
         ]);
 
         return redirect()->route('login')->with('success', 'Cuenta creada correctamente.');
