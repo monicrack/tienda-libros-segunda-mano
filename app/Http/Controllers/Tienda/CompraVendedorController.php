@@ -46,7 +46,7 @@ class CompraVendedorController extends Controller
     public function misComprasVendedor()
     {
         $compras = CompraVendedor::where('vendedor_id', Auth::id())->get();
-        return view('ventas.miscompras', compact('compras'));
+        return view('ventas.misventas', compact('compras'));
     }
     /******** Muestra el formulario para vender un libro *******/
     public function formularioVender()
