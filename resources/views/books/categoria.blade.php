@@ -1,3 +1,5 @@
+{{-- Vista para mostrar los libros filtrados por categoría o género en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('content')

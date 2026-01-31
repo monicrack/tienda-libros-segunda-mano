@@ -1,3 +1,6 @@
+{{-- Vista que muestra el aviso legal del sitio web.
+     Proporciona información condiciones de venta --}}
+
 @extends('layouts.app')
 
 @section('content')

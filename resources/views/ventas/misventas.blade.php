@@ -1,3 +1,7 @@
+{{-- Vista donde el usuario puede consultar todas las ventas que ha realizado a la tienda.
+     Muestra cada operación con el libro vendido, la cantidad, el precio pagado
+     y la fecha de la transacción. También calcula el total general obtenido --}}
+
 @extends('layouts.app')
 
 @section('title', 'Mis ventas a la tienda')

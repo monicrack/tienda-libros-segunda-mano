@@ -1,3 +1,5 @@
+{{-- Vista para la página de información de envíos y devoluciones en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('content')

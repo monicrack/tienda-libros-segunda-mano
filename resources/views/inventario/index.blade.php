@@ -1,3 +1,7 @@
+{{-- Vista para mostrar el inventario completo de la tienda.
+     Lista todos los libros disponibles junto con su stock, precio de venta
+     y estado actual. Esta vista está pensada para consulta interna o administrativa --}}
+
 @extends('layouts.app')
 
 @section('title', 'Inventario de la tienda')

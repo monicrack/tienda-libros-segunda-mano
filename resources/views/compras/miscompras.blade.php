@@ -1,3 +1,5 @@
+{{-- Vista para mostrar el historial de compras del usuario --}}
+
 @extends('layouts.app')
 
 @section('title', 'Mis compras')

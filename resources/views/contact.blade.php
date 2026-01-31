@@ -1,3 +1,7 @@
+{{-- Vista de contacto donde los usuarios pueden enviar mensajes a la tienda.
+     Incluye un formulario para nombre, email, mensaje y aceptación de la política de privacidad.
+     También muestra información de contacto y detalles sobre la protección de datos. --}}
+
 @extends('layouts.app')
 
 @section('content')

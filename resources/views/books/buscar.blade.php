@@ -1,3 +1,5 @@
+{{-- Vista para mostrar los resultados de búsqueda de libros en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('title', 'Resultados de búsqueda')

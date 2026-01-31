@@ -1,3 +1,5 @@
+{{-- Vista para la página de información de gastos de envíos en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('content')

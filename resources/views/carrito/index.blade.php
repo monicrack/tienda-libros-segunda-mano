@@ -1,3 +1,5 @@
+{{-- Vista para mostrar el contenido del carrito de compras en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('title', 'Mi Carrito')

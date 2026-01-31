@@ -1,3 +1,5 @@
+{{-- Vista para actualizar el stock de un libro en el panel de administración --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Actualizar Stock')

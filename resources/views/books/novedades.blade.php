@@ -1,3 +1,5 @@
+{{-- Vista para mostrar las novedades de libros en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('content')

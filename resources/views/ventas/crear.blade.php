@@ -1,3 +1,8 @@
+{{-- Vista para crear una nueva venta de libro a la tienda.
+     Permite seleccionar un libro del catálogo, especificar la cantidad
+     y muestra el precio que la tienda pagará por el libro.
+     Incluye información sobre cómo se realiza la valoración del libro. --}}
+
 @extends('layouts.app')
 
 @section('title', 'Vender libro a la tienda')

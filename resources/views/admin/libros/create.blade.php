@@ -1,3 +1,7 @@
+{{-- Vista del panel de administración para añadir nuevos libros.
+     Incluye un formulario para ingresar los detalles del libro y un
+     botón para buscar información en Google Books. --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Añadir Libro')

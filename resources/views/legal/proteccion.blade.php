@@ -1,3 +1,7 @@
+{{-- Vista que muestra la política de protección de datos del sitio web.
+     Proporciona información sobre se tratan los datos, quién es el responsable,
+     la información que se recopila, su finalidad y para que se usan --}}
+
 @extends('layouts.app')
 
 @section('content')

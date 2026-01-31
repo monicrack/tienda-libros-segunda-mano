@@ -1,3 +1,5 @@
+{{-- Vista para eliminar libros en el panel de administración --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Eliminar de Libros')

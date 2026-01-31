@@ -1,3 +1,7 @@
+{{-- Vista para que los usuarios puedan vender sus libros usados a la tienda.
+     Incluye una explicación del proceso, las normas para la compra de libros
+     y un formulario para enviar la solicitud de venta. --}}
+
 @extends('layouts.app')
 
 @section('content')

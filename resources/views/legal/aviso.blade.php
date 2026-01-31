@@ -1,3 +1,8 @@
+{{-- Vista que muestra el aviso legal del sitio web.
+     Proporciona información sobre el titular del sitio, condiciones de uso,
+     y cumplimiento de la legislación vigente en materia de servicios de la sociedad
+     de la información y comercio electrónico. --}}
+
 @extends('layouts.app')
 
 @section('content')

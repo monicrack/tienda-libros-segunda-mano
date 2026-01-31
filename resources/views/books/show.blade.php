@@ -1,3 +1,5 @@
+{{-- Vista para mostrar el detalle de un libro específico en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('title', 'Detalle del libro')

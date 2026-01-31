@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
+    /*Verifica si el usuario autenticado es administrador */
     public function handle($request, Closure $next)
     {
         if (!Auth::check() || Auth::user()->role !== 'admin') {

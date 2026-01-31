@@ -1,3 +1,5 @@
+{{-- Vista para mostrar los resultados de búsqueda de libros en el panel de administración --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Resultados de búsqueda')

@@ -1,3 +1,7 @@
+{{-- Vista del panel de administración para la gestión de libros.
+     Muestra un listado completo de todos los libros registrados en la plataforma,
+     permitiendo al administrador añadir nuevos libros, editarlos o eliminarlos --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Gestión de Libros')

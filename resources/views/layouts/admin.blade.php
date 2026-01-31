@@ -1,3 +1,6 @@
+{{-- Layout principal del panel de administración. Define la estructura base para todas las vistas 
+del área administrativa: navbar, buscador, enlaces de gestión, contenido dinámico y footer. --}}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -84,31 +87,31 @@
     </main>
 
     <!-- Footer -->
-<footer class="bg-dark text-light pt-4 pb-2 border-top-dorado">
-    <div class="container">
-        <div class="row align-items-center">
+    <footer class="bg-dark text-light pt-4 pb-2 border-top-dorado">
+        <div class="container">
+            <div class="row align-items-center">
 
-            <!-- Logo -->
-            <div class="col-md-3 text-center text-md-start mb-3 mb-md-0">
-                <img src="{{ asset('images/ui/logo_dorado_moderno.webp') }}"
-                     alt="Logo"
-                     style="width:70px; height:70px; border-radius:50%;">
-                <h6 style="color:#50C878; margin-top:8px;">ReLibroManía</h6>
+                <!-- Logo -->
+                <div class="col-md-3 text-center text-md-start mb-3 mb-md-0">
+                    <img src="{{ asset('images/ui/logo_dorado_moderno.webp') }}"
+                        alt="Logo"
+                        style="width:70px; height:70px; border-radius:50%;">
+                    <h6 style="color:#50C878; margin-top:8px;">ReLibroManía</h6>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-md-9 text-center text-md-end" style="color:#D4AF37;">
+                    <small>2026 © ReLibroManía — Todos los Derechos Reservados</small>
+                </div>
+
             </div>
-
-            <!-- Copyright -->
-            <div class="col-md-9 text-center text-md-end" style="color:#D4AF37;">
-                <small>2026 © ReLibroManía — Todos los Derechos Reservados</small>
-            </div>
-
         </div>
-    </div>
-</footer>
+    </footer>
 
-@stack('scripts')
+    @stack('scripts')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html>
 
+</html>

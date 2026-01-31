@@ -1,3 +1,5 @@
+{{-- Vista para el formulario de inicio de sesión de usuarios --}}
+
 @extends('layouts.app')
 
 @section('title', 'Iniciar sesión')

@@ -1,3 +1,5 @@
+{{-- Vista para el formulario de registro de nuevos usuarios --}}
+
 @extends('layouts.app')
 
 @section('title', 'Registro de usuario')

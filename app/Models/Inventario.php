@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/*Representa el inventario de libros disponibles en la tienda. */
+
 class Inventario extends Model
 {
     protected $table = 'inventario';
@@ -14,7 +16,7 @@ class Inventario extends Model
         'precio_venta',
         'estado'
     ];
-
+    /*Relación con el modelo Book. */
     public function libro()
     {
         return $this->belongsTo(Book::class, 'book_id');

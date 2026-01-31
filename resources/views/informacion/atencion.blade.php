@@ -1,3 +1,5 @@
+{{-- Vista para la página de atención al cliente en la aplicación principal --}}
+
 @extends('layouts.app')
 
 @section('content')

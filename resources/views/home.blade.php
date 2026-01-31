@@ -1,17 +1,11 @@
-@extends('layouts.app')
-
-{{-- CAPA VISUAL --}}
-{{--
-    VISTA HOME
-    ------------------------------------------------------------
-    Esta es la página principal de ReLibroManía.
+{{-- Esta es la página principal de ReLibroManía.
     Contiene:
     - Portada visual con mensaje de bienvenida
     - Carrusel de novedades
     - Secciones explicativas sobre la tienda
-    - Banner final
-    ------------------------------------------------------------
---}}
+    - Banner final --}}
+
+@extends('layouts.app')
 
 @section('title', 'Inicio')
 

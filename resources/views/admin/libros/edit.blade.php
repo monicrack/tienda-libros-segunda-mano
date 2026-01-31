@@ -1,3 +1,5 @@
+{{-- Vista para editar libros en el panel de administración --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Editar Libro')

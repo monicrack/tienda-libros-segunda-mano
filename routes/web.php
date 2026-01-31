@@ -1,12 +1,9 @@
 <?php
 
-/*****Definir las URLs que los usuarios pueden visitar ******/
-/**
- * --------------------------------------------------------------
- *  Rutas: Home, Gestión de libros, Formularios, 
- * y Páginas de Información y Legales
- * --------------------------------------------------------------
- */
+/* Archivo principal de rutas web.
+   Contiene todas las rutas públicas y privadas de la aplicación,
+   organizadas por secciones: libros, categorías, carrito, usuarios
+   y panel de administración */
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
@@ -92,7 +89,6 @@ Route::post('/aceptar-cookies', function () {
     return back();
 })->name('cookies.aceptar');
 
-
 /********** Información **********/
 Route::get('/atencion-cliente', function () {
     return view('informacion.atencion');
@@ -128,31 +124,27 @@ Route::post('/finalizar-compra', [CarritoController::class, 'finalizarCompra'])
     ->middleware('auth')
     ->name('carrito.finalizar');
 
-
-Route::get('/checkout', function () {
-    return "Página de compra en construcción";
-})->name('checkout');
-
-// Compras a vendedores
+/*********** Compras a vendedores **************/
 Route::post('/comprar-vendedor', [CompraVendedorController::class, 'comprarAlVendedor'])->name('comprar.vendedor');
 Route::get('/mis-compras-vendedor', [CompraVendedorController::class, 'misComprasVendedor'])->name('compras.vendedor');
 
-// Ventas a clientes
+/*********** Ventas a clientes **************/
 Route::post('/vender-cliente', [VentaClienteController::class, 'venderAlCliente'])->name('vender.cliente');
 Route::get('/mis-compras', [VentaClienteController::class, 'misComprasCliente'])->name('compras.cliente');
 
 
-// Inventario de la tienda 
+/*********** Inventario de la tienda **************/
 Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
 Route::get('/inventario/editar/{id}', [InventarioController::class, 'editar'])->name('inventario.editar');
 Route::post('/inventario/actualizar/{id}', [InventarioController::class, 'actualizar'])->name('inventario.actualizar');
 
 
-// Comprar libros a vendedores - formulario
+/***********  Formulario Comprar libros a vendedores **************/
 Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
     ->name('ventas.form');
 Route::post('/vender/guardar', [CompraVendedorController::class, 'comprarAlVendedor'])
     ->name('ventas.guardar');
+    
 /********** Rutas de administración (solo para admins) **************/
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
@@ -167,8 +159,6 @@ Route::middleware(['auth', 'admin'])
             ->name('libros.actualizar');
 
         Route::resource('libros', AdminBookController::class);
-
-
         // Inventario 
         Route::get('/inventario', [AdminBookController::class, 'inventario'])
             ->name('inventario');

@@ -1,3 +1,8 @@
+{{-- Vista del panel de administración para actualizar libros.
+     Muestra una tabla con todos los libros registrados en la plataforma,
+     permitiendo al administrador visualizar su información y acceder a la
+     edición de cada uno. --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Actualizar Libros')

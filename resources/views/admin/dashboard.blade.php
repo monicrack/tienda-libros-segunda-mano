@@ -1,3 +1,5 @@
+{{-- Vista del panel de administración principal --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Panel de Administración')

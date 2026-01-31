@@ -1,4 +1,13 @@
-{{-- CAPA VISUAL --}}
+{{-- Layout principal de la aplicación pública.
+     Define la estructura base de todas las páginas visibles para los usuarios:
+     - Menú principal de navegación
+     - Submenú o categorías
+     - Contenedor para el contenido dinámico de cada vista
+     - Footer con información legal y enlaces
+     - Aviso de cookies
+     Todas las vistas que extienden este layout comparten la misma interfaz
+     y estilos globales. --}}
+
 <!DOCTYPE html>
 <html lang="es">
 

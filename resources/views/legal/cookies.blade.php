@@ -1,3 +1,7 @@
+{{-- Vista que muestra la política de cookies del sitio web.
+     Proporciona información sobre el uso de cookies, tipos de cookies utilizadas,
+     y cómo los usuarios pueden gestionar sus preferencias. --}}
+
 @extends('layouts.app')
 
 @section('content')

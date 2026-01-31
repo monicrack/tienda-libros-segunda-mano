@@ -1,12 +1,11 @@
 body{
     padding-top: 68px; 
-    background-color: #fff; /* asegura que el fondo sea uniforme */
+    background-color: #fff; /*asegura que el fondo sea uniforme */
 }
 .admin-layout { 
     padding-top: 0 !important; 
     background-color: black !important; 
 }
-
 .titulo-contenedor {
     text-align: center;
 }
@@ -29,27 +28,22 @@ body{
 .submenu a:hover {
     color: #d4af37 !important; /*blanco al pasar el ratón */
 }
-
 .portada-img {
     max-width: 250px; /*tamaño normal en pantallas grandes */
 }
 .mt-negativo {
     margin-top: -110px; /*se superpone al contenido principal para reducir el espacio de altura*/
 }
-
 .card {
-    box-shadow: 8px 8px 10px rgba(212, 175, 55, 0.6); /* dorado intenso abajo a la derecha */
+    box-shadow: 8px 8px 10px rgba(212, 175, 55, 0.6); 
+    background-color: #d4af37 !important; 
+    color: #fff !important; 
+    border: solid 3px #50c878 !important; /
 }
-.btn-resumen {
-    background-color: #d4af37 !important; /* fondo blanco */
-    color: #fff !important; /* texto blanco */
-    border: solid 3px #50c878 !important; /* borde verde esmeralda */
-}
-
 .btn-resumen:hover {
-    background-color: #3da766 !important; /* fondo dorado al pasar */
-    color: #fff !important; /* texto blanco */
-    border: solid 3px #d4af37 !important; /* borde verde oscuro */
+    background-color: #3da766 !important; 
+    color: #fff !important; 
+    border: solid 3px #d4af37 !important; 
 }
 .btn-primary {
     background-color: #50c878 !important;
@@ -63,13 +57,12 @@ body{
     margin-left: 1em;
 }
 .contacto a {
-    text-decoration: none; /* quita el subrayado */
+    text-decoration: none; 
 }
 
 .contacto a:hover {
-    color: #d4af37 !important; /* opcional: cambia a dorado en hover */
+    color: #d4af37 !important; 
 }
-
 .list-unstyled li a {
     text-decoration: none;
 }
@@ -77,7 +70,7 @@ body{
     color: #d4af37 !important;
 }
 .border-top-dorado {
-    border-top: 1px solid #d4af37; /* fina línea dorada */
+    border-top: 1px solid #d4af37; 
 }
 #categoria-libros {
     padding-top: 100px !important; 
@@ -86,7 +79,7 @@ body{
     padding-top: 70px !important;
 }
 .book-img {
-    max-width: 120px; /* tamaño de imagen del libro de la vista show en móvil*/
+    max-width: 120px; /*tamaño de imagen del libro de la vista show en móvil*/
 }
 .boton-vaciar {
     background-color: black !important;
@@ -115,8 +108,8 @@ body{
         min-width: 200px; /* tamaño de imagen del libro de la vista show en desktop*/
     }
 }
+/* AJUSTES PARA MÓVILES */
 @media (max-width: 576px) {
-    /* xs */
     .portada-img {
         max-width: 120px; /* tamaño reducido en móviles */
     }

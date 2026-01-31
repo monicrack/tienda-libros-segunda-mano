@@ -1,3 +1,6 @@
+{{-- Vista del panel de administración para la gestión del inventario de libros.
+     Permite al administrador editar, borrar y gestionar el stock de los libros disponibles --}}
+
 @extends('layouts.admin')
 
 @section('title', 'Inventario')
