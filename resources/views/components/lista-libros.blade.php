@@ -1,6 +1,6 @@
-{{-- Para mostrar una lista de libros en formato de tarjetas.
+{{-- Componente Blade para mostrar una lista de libros en formato de tarjetas.
      Se utiliza en distintas secciones de la web (categorías, novedades, búsquedas…)
-     y recibe una colección de libros ($books) --}}
+     y recibe una colección de libros ($books) y opcionalmente un título ($titulo) --}}
 
 <div class="container-fluid bg-dark text-light py-4 mt-5" id="categoria-libros">
 
