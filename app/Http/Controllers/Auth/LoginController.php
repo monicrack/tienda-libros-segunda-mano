@@ -33,6 +33,7 @@ class LoginController extends Controller
     /******** Redirige según el rol del usuario tras el login *******/
     protected function authenticated($request, $user)
     {
+        session(['was_authenticated' => true]);
         if ($user->role === 'admin') {
             return redirect()->route('admin.dashboard');
         }

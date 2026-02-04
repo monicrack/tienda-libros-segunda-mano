@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Auth;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -12,10 +14,23 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'auth' => \App\Http\Middleware\Authenticate::class,
+            'auth'  => \App\Http\Middleware\Authenticate::class,
             'admin' => \App\Http\Middleware\IsAdmin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
-    })->create();
+
+        $exceptions->render(function (AuthenticationException $e, $request) {
+
+            // Si existía usuario en sesión → sesión expirada
+            if ($request->session()->has(Auth::getName())) {
+                abort(419);
+            }
+
+            // Si nunca estuvo autenticado → login / register
+            return redirect()->route('login');
+        });
+
+    })
+    ->create();
+

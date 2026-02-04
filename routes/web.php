@@ -116,6 +116,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 /*********** Rutas del carrito de la compra **************/
+
 Route::get('/carrito', [CarritoController::class, 'index'])->name('carrito.index');
 Route::post('/carrito/agregar/{id}', [CarritoController::class, 'agregar'])->name('carrito.agregar');
 Route::post('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
@@ -126,11 +127,15 @@ Route::post('/finalizar-compra', [CarritoController::class, 'finalizarCompra'])
 
 /*********** Compras a vendedores **************/
 Route::post('/comprar-vendedor', [CompraVendedorController::class, 'comprarAlVendedor'])->name('comprar.vendedor');
-Route::get('/mis-compras-vendedor', [CompraVendedorController::class, 'misComprasVendedor'])->name('compras.vendedor');
+Route::get('/mis-compras-vendedor', [CompraVendedorController::class, 'misComprasVendedor'])
+    ->middleware('auth')
+    ->name('compras.vendedor');
 
 /*********** Ventas a clientes **************/
 Route::post('/vender-cliente', [VentaClienteController::class, 'venderAlCliente'])->name('vender.cliente');
-Route::get('/mis-compras', [VentaClienteController::class, 'misComprasCliente'])->name('compras.cliente');
+Route::get('/mis-compras', [VentaClienteController::class, 'misComprasCliente'])
+    ->middleware('auth')
+    ->name('compras.cliente');
 
 
 /*********** Inventario de la tienda **************/
@@ -144,7 +149,7 @@ Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
     ->name('ventas.form');
 Route::post('/vender/guardar', [CompraVendedorController::class, 'comprarAlVendedor'])
     ->name('ventas.guardar');
-    
+
 /********** Rutas de administración (solo para admins) **************/
 Route::middleware(['auth', 'admin'])
     ->prefix('admin')
