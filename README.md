@@ -14,16 +14,16 @@ Desarrollar una aplicación web que permita a una tienda:
 - Vender libros de segunda mano a los clientes.
 - Comprar libros usados a usuarios registrados.
 - Gestionar el catálogo de libros y el stock.
-- Administrar usuarios y pedidos desde un panel de administración.
+- Administrar los libros desde un panel de administración.
 
 ---
 
 ## Tecnologías utilizadas
 
 - PHP 8.x
-- Laravel
-- MySQL
-- HTML5 / CSS3
+- Laravel 12
+- SQLite
+- HTML5 / CSS
 - Bootstrap
 - JavaScript
 - Git & GitHub
