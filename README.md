@@ -33,7 +33,7 @@ Desarrollar una aplicación web que permita a una tienda:
 ## Roles de usuario
 
 - **Usuario**: puede registrarse, comprar libros y vender libros a la tienda.
-- **Administrador**: gestiona usuarios, libros, ventas y pedidos.
+- **Administrador**: gestiona libros, puede añadir, eliminar, editar libros y controlar el inventario.
 
 ---
 
