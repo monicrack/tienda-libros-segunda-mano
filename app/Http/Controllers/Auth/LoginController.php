@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class LoginController extends Controller
 {
@@ -43,10 +45,12 @@ class LoginController extends Controller
     /******** Cierra la sesión del usuario *******/
     public function logout(Request $request)
     {
+        // Eliminar todas las sesiones del usuario en la tabla sessions 
+        DB::table('sessions')->where('user_id', Auth::id())->delete();
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('success', 'Has cerrado sesión correctamente.');
+        return redirect('/login')->with('success', 'Has cerrado sesión correctamente.');
     }
 }

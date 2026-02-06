@@ -89,7 +89,7 @@
                 const precioLibro = parseFloat(select.selectedOptions[0].dataset.precio);
 
                 // Precio que paga la tienda 
-                precioPagado.value = (precioLibro - 9).toFixed(2);
+                precioPagado.value = (precioLibro - 4).toFixed(2);
 
                 // Precio de venta en tienda 
                 precioVenta.value = precioLibro.toFixed(2);
