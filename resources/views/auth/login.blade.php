@@ -45,7 +45,10 @@
                     </div>
 
                 </form>
-
+ <p class="text-center mt-3">
+                    ¿No tienes cuenta?
+                    <a href="{{ route('register') }}" class="fw-bold" style="color:#50C878; text-decoration: none;">Registrate para Iniciar Sesión</a>
+                </p>
             </div>
         </div>
 

@@ -19,10 +19,14 @@ class RegisterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
+            'email' => [
+                'required',
+                'unique:users',
+                'regex:/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/'
+            ],
             'password' => 'required|min:6|confirmed',
-
         ]);
+
 
         User::create([
             'name' => $request->name,
