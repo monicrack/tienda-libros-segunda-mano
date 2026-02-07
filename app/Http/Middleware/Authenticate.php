@@ -16,8 +16,6 @@ class Authenticate extends Middleware
                 return route('login', ['expired' => 1]);
             }
 
-            // Usuario nunca logueado 
-            return route('register');
         }
     }
 }

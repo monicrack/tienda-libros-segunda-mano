@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminBookController extends Controller
+
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /******* Muestra el listado completo de libros en el panel de administración ********/
     public function index()
     {
@@ -61,7 +67,7 @@ class AdminBookController extends Controller
             'imagen' => $request->imagen,
             'isbn' => $request->isbn,
             'genero' => $request->genero,
-            'user_id' => Auth::id(), 
+            'user_id' => Auth::id(),
         ]);
 
         return redirect()->route('admin.libros.index')->with('success', 'Libro actualizado correctamente');

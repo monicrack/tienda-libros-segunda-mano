@@ -126,7 +126,9 @@ Route::post('/finalizar-compra', [CarritoController::class, 'finalizarCompra'])
     ->name('carrito.finalizar');
 
 /*********** Compras a vendedores **************/
-Route::post('/comprar-vendedor', [CompraVendedorController::class, 'comprarAlVendedor'])->name('comprar.vendedor');
+Route::post('/comprar-vendedor', [CompraVendedorController::class, 'comprarAlVendedor'])
+->middleware('auth')
+->name('comprar.vendedor');
 Route::get('/mis-compras-vendedor', [CompraVendedorController::class, 'misComprasVendedor'])
     ->middleware('auth')
     ->name('compras.vendedor');

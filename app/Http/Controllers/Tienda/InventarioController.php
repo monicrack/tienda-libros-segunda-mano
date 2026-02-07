@@ -9,6 +9,10 @@ use App\Models\Book;
 
 class InventarioController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**** Mostrar inventario completo******/
     public function index()
     {

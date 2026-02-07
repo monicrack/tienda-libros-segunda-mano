@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class CompraVendedorController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /******** Procesa la compra de un libro al vendedor *******/
     public function comprarAlVendedor(Request $request)
     {
