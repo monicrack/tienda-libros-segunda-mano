@@ -13,10 +13,14 @@
 
 
                 <h2 class="text-center mb-4">Iniciar sesión</h2>
+                @if(session('success'))
+                <div class="alert text-light text-center mb-0">
+                    {{ session('success') }}
+                </div> @endif
 
                 @if(request()->has('expired'))
-                <div class="alert alert-warning text-center">
-                    Tu sesión ha caducado. Por favor, inicia sesión de nuevo.
+                <div class="alert text-center" style="background-color:#D4AF37; color:#000; font-weight:bold;">
+                   Tu sesión ha caducado. Por favor, inicia sesión de nuevo.
                 </div>
                 @endif
 
@@ -45,7 +49,7 @@
                     </div>
 
                 </form>
- <p class="text-center mt-3">
+                <p class="text-center mt-3">
                     ¿No tienes cuenta?
                     <a href="{{ route('register') }}" class="fw-bold" style="color:#50C878; text-decoration: none;">Registrate para Iniciar Sesión</a>
                 </p>

@@ -11,12 +11,14 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
 
-            // Si había cookie de sesión pero ya no hay usuario 
-            if ($request->hasCookie(config('session.cookie')) && !Auth::check()) {
                 return route('login', ['expired' => 1]);
-            }
-
+            
         }
+    }
+    protected function sessionExpired() {
+
+         return route('login', ['expired' => 1]); 
+         
     }
 }
 
