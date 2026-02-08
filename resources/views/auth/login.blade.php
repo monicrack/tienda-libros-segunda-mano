@@ -20,7 +20,8 @@
 
                 @if(request()->has('expired'))
                 <div class="alert text-center" style="background-color:#D4AF37; color:#000; font-weight:bold;">
-                   Tu sesión ha caducado. Por favor, inicia sesión de nuevo.
+                   Por favor, inicia sesión  para continuar. <br>
+                   Tu sesión  puede haber expirado por inactividad.
                 </div>
                 @endif
 
