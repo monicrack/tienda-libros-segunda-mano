@@ -51,6 +51,8 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Has cerrado sesión correctamente.');
+        return redirect('/login')
+        ->with('success', 'Has cerrado sesión correctamente.')
+        ->withCookie(cookie()->forget('laravel_session'));
     }
 }

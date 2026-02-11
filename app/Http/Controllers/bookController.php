@@ -80,6 +80,19 @@ class BookController extends Controller
 
             $info = $item['volumeInfo'];
 
+            /********** EXTRAER IMAGEN DE FORMA SEGURA **********/
+            $imagen = null;
+
+            if (!empty($info['imageLinks'])) {
+                $imagen = $info['imageLinks']['thumbnail']
+                    ?? $info['imageLinks']['smallThumbnail']
+                    ?? null;
+
+                if ($imagen) {
+                    $imagen = str_replace('http://', 'https://', $imagen);
+                }
+            }
+
             /********** EXTRAER ISBN (si existe) **********/
             $isbn = null;
 
@@ -105,7 +118,9 @@ class BookController extends Controller
                 'autor' => $info['authors'][0] ?? 'Autor desconocido',
                 'editorial' => $info['publisher'] ?? 'Editorial desconocida',
                 'descripcion' => $info['description'] ?? 'Sin descripción',
-                'imagen' => $info['imageLinks']['thumbnail'] ?? null,
+                'imagen' => isset($info['imageLinks']['thumbnail'])
+                    ? str_replace('http://', 'https://', $info['imageLinks']['thumbnail'])
+                    : null,
                 'precio' => rand(5, 30),
                 'estado' => 'usado',
                 'user_id' => Auth::id(),
@@ -128,30 +143,30 @@ class BookController extends Controller
 
 
     /*********** Mostrar los libros filtrados por categoría (género)*********/
-   public function categoria(Request $request)
-{
-    $genero = $request->segment(2);
+    public function categoria(Request $request)
+    {
+        $genero = $request->segment(2);
 
-    session(['ultima_categoria' => $genero]);
+        session(['ultima_categoria' => $genero]);
 
-    $nombresBonitos = [
-        'todos' => 'Todos los libros',
-        'fantasia' => 'Fantasía',
-        'ciencia-ficcion' => 'Ficción',
-        'novela' => 'Novela',
-        'terror' => 'Terror',
-        'infantil' => 'Infantil',
-    ];
+        $nombresBonitos = [
+            'todos' => 'Todos los libros',
+            'fantasia' => 'Fantasía',
+            'ciencia-ficcion' => 'Ficción',
+            'novela' => 'Novela',
+            'terror' => 'Terror',
+            'infantil' => 'Infantil',
+        ];
 
-    $generoMostrar = $nombresBonitos[$genero] ?? ucfirst($genero);
+        $generoMostrar = $nombresBonitos[$genero] ?? ucfirst($genero);
 
-    // Si es "todos", no filtramos
-    if ($genero === 'todos') {
-        $books = Book::all();
-    } else {
-        $books = Book::where('genero', $genero)->get();
+        // Si es "todos", no filtramos
+        if ($genero === 'todos') {
+            $books = Book::all();
+        } else {
+            $books = Book::where('genero', $genero)->get();
+        }
+
+        return view('books.categoria', compact('books', 'generoMostrar'));
     }
-
-    return view('books.categoria', compact('books', 'generoMostrar'));
-}
 }
