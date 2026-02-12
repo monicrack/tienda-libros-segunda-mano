@@ -31,6 +31,12 @@
            style="background:black; color:#50C878; border:2px solid #50C878;">
             Inventario
         </a>
+
+         <a href="{{ route('admin.sesiones') }}" 
+           class="btn btn-lg"
+           style="background:black; color:#50C878; border:2px solid #50C878;">
+            Sesiones Activas
+        </a>
     </div>
 </div>
 @endsection

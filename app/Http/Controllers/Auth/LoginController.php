@@ -45,8 +45,13 @@ class LoginController extends Controller
     /******** Cierra la sesión del usuario *******/
     public function logout(Request $request)
     {
-        // Eliminar todas las sesiones del usuario en la tabla sessions 
-        DB::table('sessions')->where('user_id', Auth::id())->delete();
+    
+        // Registrar el cierre de sesión ANTES de Auth::logout()
+        DB::table('session_logs')->insert([
+            'user_id' => Auth::id(), 
+            'action' => 'logout', 
+            'created_at' => now(), 
+        ]);
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

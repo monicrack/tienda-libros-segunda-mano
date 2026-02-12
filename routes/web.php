@@ -176,4 +176,6 @@ Route::middleware(['auth', 'admin'])
 
         Route::put('/inventario/{libro}/stock', [AdminBookController::class, 'actualizarStock'])
             ->name('inventario.stock.update');
+        Route::get('/admin/sesiones', [App\Http\Controllers\AdminSessionController::class, 'index'])
+        ->name('sesiones');
     });
