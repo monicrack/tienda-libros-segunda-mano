@@ -19,6 +19,7 @@ use App\Http\Controllers\Tienda\InventarioController;
 use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminBookController;
+use App\Http\Controllers\UserSessionController;
 
 /******** Página principal **************/
 Route::get('/', function () {
@@ -151,6 +152,9 @@ Route::get('/vender', [CompraVendedorController::class, 'formularioVender'])
     ->name('ventas.form');
 Route::post('/vender/guardar', [CompraVendedorController::class, 'comprarAlVendedor'])
     ->name('ventas.guardar');
+/************Ruta para control de sesiones*************/
+Route::post('/logout', [UserSessionController::class, 'logout'])->name('logout');
+
 
 /********** Rutas de administración (solo para admins) **************/
 Route::middleware(['auth', 'admin'])

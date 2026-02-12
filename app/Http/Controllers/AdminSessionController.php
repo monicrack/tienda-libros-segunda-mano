@@ -9,35 +9,31 @@ class AdminSessionController extends Controller
 {
     public function index()
     {
+        // Sesiones activas
         $sessions = Session::with('user')
             ->orderBy('last_activity', 'desc')
             ->get()
             ->map(function ($session) {
-
-                // Última actividad
                 $session->last_activity_human = \Carbon\Carbon::createFromTimestamp($session->last_activity)->diffForHumans();
-
-                // Asegurar que tenemos user_id
-                $userId = $session->user_id ?? ($session->user->id ?? null);
-
-                if (!$userId) {
-                    $session->last_logout = 'N/A';
-                    return $session;
-                }
-
-                // Buscar último logout
-                $lastLogout = DB::table('session_logs')
-                    ->where('user_id', $userId)
-                    ->orderBy('created_at', 'desc')
-                    ->value('created_at');
-
-                $session->last_logout = $lastLogout
-                    ? \Carbon\Carbon::parse($lastLogout)->diffForHumans()
-                    : 'Nunca';
-
                 return $session;
             });
 
-        return view('admin.sessions.index', compact('sessions'));
+        // Historial de cierres de sesión (TODOS)
+        $logs = DB::table('session_logs')
+            ->join('users', 'session_logs.user_id', '=', 'users.id')
+            ->select('session_logs.*', 'users.name')
+            ->orderBy('session_logs.created_at', 'desc')
+            ->get();
+        // Conteo de conexiones y desconexiones 
+        $stats = DB::table('session_logs')
+            ->select(
+                'user_id',
+                DB::raw("SUM(CASE WHEN action = 'logout' THEN 1 ELSE 0 END) as logouts")
+            )
+            ->groupBy('user_id')
+            ->get()
+            ->keyBy('user_id');
+
+        return view('admin.sessions.index', compact('sessions', 'logs', 'stats'));
     }
 }
