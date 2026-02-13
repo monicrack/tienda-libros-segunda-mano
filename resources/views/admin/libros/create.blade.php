@@ -54,7 +54,7 @@
             return;
         }
 
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURIComponent(titulo)}`)
+        fetch(`/admin/buscar-google?titulo=${encodeURIComponent(titulo)}`)
             .then(response => response.json())
             .then(data => {
                 if (!data.items || data.items.length === 0) {

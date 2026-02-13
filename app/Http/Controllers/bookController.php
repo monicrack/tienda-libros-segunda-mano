@@ -141,6 +141,19 @@ class BookController extends Controller
         return redirect()->back()->with('success', 'Libros importados correctamente');
     }
 
+    public function buscarGoogle(Request $request)
+    {
+        $titulo = $request->query('titulo');
+
+        $response = Http::get('https://www.googleapis.com/books/v1/volumes', [
+            'q' => 'intitle:' . $titulo,
+            'maxResults' => 1
+        ]);
+
+        return $response->json();
+    }
+
+
 
     /*********** Mostrar los libros filtrados por categoría (género)*********/
     public function categoria(Request $request)
