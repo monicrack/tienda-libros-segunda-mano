@@ -47,11 +47,6 @@ class AdminBookController extends Controller
 
         $book->save();
 
-        $book->inventario()->create([
-            'stock' => $request->cantidad,
-            'precio_venta' => $request->precio
-        ]);
-
         return redirect()->route('admin.libros.index')->with('success', 'Libro añadido correctamente');
     }
     /****** Muestra el formulario para editar un libro existente******/
@@ -104,13 +99,7 @@ class AdminBookController extends Controller
     /******** Muestra el formulario para editar el stock de un libro concreto *******/
     public function editarStock(Book $libro)
     {
-        // Crear inventario si no existe 
-        $inventario = $libro->inventario()->firstOrCreate(
-            ['book_id' => $libro->id],
-            ['stock' => 0],
-            ['precio_venta' => $libro->precio]
-
-        );
+        $inventario = $libro->inventario;
         return view('admin.stock', compact('libro', 'inventario'));
     }
     /******** Actualiza el stock de un libro en el inventario *******/
@@ -120,11 +109,7 @@ class AdminBookController extends Controller
             'stock' => 'required|integer|min:0'
         ]);
 
-        $inventario = $libro->inventario()->firstOrCreate(
-            ['book_id' => $libro->id],
-            ['stock' => 0]
-        );
-        $inventario->update([
+        $libro->inventario->update([
             'stock' => $request->stock
         ]);
 

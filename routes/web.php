@@ -168,6 +168,8 @@ Route::middleware(['auth', 'admin'])
             ->name('libros.delete');
         Route::get('/libros/actualizar', [AdminBookController::class, 'vistaActualizar'])
             ->name('libros.actualizar');
+        Route::get('/buscar-google', [BookController::class, 'buscarGoogle']);
+
 
         Route::resource('libros', AdminBookController::class);
         // Inventario 

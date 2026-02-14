@@ -22,11 +22,10 @@
         <input type="text" name="titulo" placeholder="Título" class="form-control mb-3" required>
         <input type="text" name="autor" placeholder="Autor" class="form-control mb-3">
         <input type="text" name="editorial" placeholder="Editorial" class="form-control mb-3">
-        <input type="number" step="0.01" name="precio" placeholder="Precio" class="form-control mb-3 border border-danger bg-danger-subtle">
-        <input type="number" name="cantidad" placeholder="Cantidad en stock" class="form-control mb-3 border border-danger bg-danger-subtle" min="0">
-        <input type="text" name="estado" placeholder="Estado (Nuevo, Usado...)" class="form-control mb-3 border border-danger bg-danger-subtle">
+        <input type="number" step="0.01" name="precio" placeholder="Precio" class="form-control mb-3">
+        <input type="text" name="estado" placeholder="Estado (Nuevo, Usado...)" class="form-control mb-3">
         <input type="text" name="isbn" placeholder="ISBN" class="form-control mb-3">
-        <select name="genero" class="form-control mb-3 border border-danger bg-danger-subtle">
+        <select name="genero" class="form-control mb-3">
             <option value="">Selecciona un género</option>
             <option value="fantasia">Fantasía</option>
             <option value="novela">Novela</option>
@@ -55,7 +54,7 @@
             return;
         }
 
-        fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${encodeURIComponent(titulo)}`)
+        fetch(`/admin/buscar-google?titulo=${encodeURIComponent(titulo)}`)
             .then(response => response.json())
             .then(data => {
                 if (!data.items || data.items.length === 0) {
