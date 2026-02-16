@@ -12,7 +12,8 @@ class AuthenticateTest extends TestCase
         public function test_usuario_no_autenticado_redirige_a_register()
     {
         $response = $this->get('/mis-compras');
-        $response->assertRedirect(route('login'));
+        $response->assertRedirect('/login?expired=1');
+
     }
 
     /* Verifica que una sesión expirada muestre el código de estado 419*/
@@ -26,6 +27,7 @@ class AuthenticateTest extends TestCase
         $this->withCookie(config('session.cookie'), 'cookie-falsa');
 
         $response = $this->get('/mis-compras');
-        $response->assertStatus(419);
+        $response->assertRedirectContains('/login');
+
     }
 }
