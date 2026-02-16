@@ -47,6 +47,11 @@ class AdminBookController extends Controller
 
         $book->save();
 
+        $book->inventario()->create([
+            'stock' => $request->cantidad,
+            'precio_venta' => $request->precio
+        ]);
+
         return redirect()->route('admin.libros.index')->with('success', 'Libro añadido correctamente');
     }
     /****** Muestra el formulario para editar un libro existente******/

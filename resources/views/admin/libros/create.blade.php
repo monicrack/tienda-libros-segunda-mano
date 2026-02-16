@@ -22,10 +22,11 @@
         <input type="text" name="titulo" placeholder="Título" class="form-control mb-3" required>
         <input type="text" name="autor" placeholder="Autor" class="form-control mb-3">
         <input type="text" name="editorial" placeholder="Editorial" class="form-control mb-3">
-        <input type="number" step="0.01" name="precio" placeholder="Precio" class="form-control mb-3">
-        <input type="text" name="estado" placeholder="Estado (Nuevo, Usado...)" class="form-control mb-3">
+        <input type="number" step="0.01" name="precio" placeholder="Precio" class="form-control mb-3 bg-danger-subtle border-danger">
+        <input type="text" name="estado" placeholder="Estado (Nuevo, Usado...)" class="form-control mb-3 bg-danger-subtle border-danger">
         <input type="text" name="isbn" placeholder="ISBN" class="form-control mb-3">
-        <select name="genero" class="form-control mb-3">
+        <input type="number" name="cantidad" placeholder="Cantidad en stock" class="form-control mb-3 bg-danger-subtle border-danger" min="0" required>
+        <select name="genero" class="form-control mb-3 bg-danger-subtle border-danger">
             <option value="">Selecciona un género</option>
             <option value="fantasia">Fantasía</option>
             <option value="novela">Novela</option>
