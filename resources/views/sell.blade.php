@@ -83,22 +83,33 @@
                 <div class="alert alert-success">{{ session('success_sell') }}</div>
                 @endif
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+
                 <form action="{{ route('sell.submit') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
                         <label class="form-label">Tu nombre</label>
-                        <input type="text" name="nombre" class="form-control" required>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Tu email</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Lista de libros</label>
-                        <textarea name="lista" class="form-control" rows="4" placeholder="Ejemplo: Harry Potter 1, It - Stephen King..." required></textarea>
+                        <textarea name="lista" class="form-control" rows="4" placeholder="Ejemplo: Harry Potter 1, It - Stephen King..." required>{{ old('lista') }}</textarea>
                     </div>
 
                     <div class="mb-3">

@@ -13,31 +13,32 @@ class SellController extends Controller
         return view('sell');
     }
     /******* Procesa el envío del formulario de venta de libros ********/
-   public function submit(Request $request)
-{
-    $request->validate([
-        'nombre' => 'required',
-        'email' => 'required|email',
-        'lista' => 'required',
-        'fotos.*' => 'image|max:2048'
-    ]);
+    public function submit(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'email' => ['required', 'email', 'regex:/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/'],
+            'lista' => 'required',
+            'fotos.*' => 'image|max:2048'
+        ]);
 
-    $fotosGuardadas = [];
 
-    if ($request->hasFile('fotos')) {
-        foreach ($request->file('fotos') as $foto) {
-            $nombre = $foto->store('fotos_libros', 'public');
-            $fotosGuardadas[] = $nombre;
+        $fotosGuardadas = [];
+
+        if ($request->hasFile('fotos')) {
+            foreach ($request->file('fotos') as $foto) {
+                $nombre = $foto->store('fotos_libros', 'public');
+                $fotosGuardadas[] = $nombre;
+            }
         }
-    }
-    // Guardar en la base de datos
-    SellRequest::create([
-        'nombre' => $request->nombre,
-        'email' => $request->email,
-        'lista' => $request->lista,
-        'fotos' => $fotosGuardadas,
-    ]);
+        // Guardar en la base de datos
+        SellRequest::create([
+            'nombre' => $request->nombre,
+            'email' => $request->email,
+            'lista' => $request->lista,
+            'fotos' => $fotosGuardadas,
+        ]);
 
-    return back()->with('success_sell', 'Tu solicitud de venta ha sido enviada. Te contactaremos pronto.');
-}
+        return back()->with('success_sell', 'Tu solicitud de venta ha sido enviada. Te contactaremos pronto.');
+    }
 }

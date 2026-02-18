@@ -26,22 +26,33 @@
                 <div class="alert alert-success">{{ session('success_contact') }}</div>
                 @endif
 
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+
                 <form action="{{ route('contact.submit') }}" method="POST">
                     @csrf
 
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" name="nombre" class="form-control" required>
+                        <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Mensaje</label>
-                        <textarea name="mensaje" class="form-control" rows="7" required></textarea>
+                        <textarea name="mensaje" class="form-control" rows="7" required>{{ old('mensaje') }}</textarea>
                     </div>
 
                     <!-- CHECKBOX LEGAL -->
